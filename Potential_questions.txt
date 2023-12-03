@@ -1,3 +1,5 @@
+NOTE: These are separate to the whatsapp GC's qs.
+
 * Shouldn't the user's age be part of the MVP, since it's a pretty import thing ethically? You don't seem to be decided on whether or not you're going to include the age rating as part of the MVP or not.
   And also since the age rating is something you display with the film recommendation?
 * How do you plan to secure the user's data? What type of encryption algorithm?
