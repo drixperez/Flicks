@@ -1,0 +1,9 @@
+* Shouldn't the user's age be part of the MVP, since it's a pretty import thing ethically? You don't seem to be decided on whether or not you're going to include the age rating as part of the MVP or not.
+  And also since the age rating is something you display with the film recommendation?
+* How do you plan to secure the user's data? What type of encryption algorithm?
+* In the search function, how exactly do you plan to prevent children from searching up 
+  films beyond their age rating? Or is this not part of the MVP?
+* In the earlier slides, you showed multiple designs of the webpage, on a range of different            
+  platforms. Does that mean you plan to have mobile compatibility as part of your MVP? 
+* For your extension idea of using tensorflow's pre-trained model, have you considered the     ethical and legal considerations of that? Are you allowed to implement that without anything    like copyright issues arising? 
+*
