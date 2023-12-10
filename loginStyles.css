@@ -73,3 +73,21 @@ button.settings{
     right: 0px;
 
 }
+button.background{
+    background-color:#2E2E2F;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 100px;
+    right: 0px;
+}
+button.layout{
+    background-color: #2E2E2F;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 100px;
+    right: 200px;
+}
