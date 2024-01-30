@@ -1,0 +1,126 @@
+body {
+    background-color: #cddedd;
+    margin: 0;
+    padding: 0;
+}
+.LoginHeader{
+    height:50px;
+    background-color:#A26870;
+    color:black;
+    text-align:center;
+    padding:0;
+    position: absolute;
+    top: 200px;
+    right: 700px;
+}
+button.Login{
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 0px;
+    right: 200px;
+}
+button.settings{
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 0px;
+    right: 0px;
+}
+button.layout{
+    background-color:#2E2E2F;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 100px;
+    right: 200px;
+}
+button.background{
+    background-color:#2E2E2F;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 100px;
+    right: 0px;
+}
+.emailInp{
+    border-radius: 4px;
+    position: absolute;
+    top: 170px;
+    right: 680px;
+    width: 250px;
+    height: 40px;
+}
+.usernameInp{
+    border-radius: 4px;
+    position: absolute;
+    top: 70px;
+    right: 680px;
+    width: 250px;
+    height: 40px;
+}
+.passwordInp{
+    border-radius: 4px;
+    position: absolute;
+    top: 270px;
+    right: 680px;
+    width: 250px;
+    height: 40px;
+}
+.genrePreferences{
+    border-radius: 4px;
+    position: absolute;
+    top: 370px;
+    right: 680px;
+    width: 250px;
+    height: 150px;
+}
+.dob{
+    border-radius: 4px;
+    position: absolute;
+    top: 570px;
+    right: 680px;
+    width: 250px;
+    height: 40px;
+}
+.usernameLabel{
+    position: absolute;
+    top: 50px;
+    right: 860px;
+}
+.emailLabel{
+    position: absolute;
+    top: 150px;
+    right: 830px;
+}
+.passwordLabel{
+    position: absolute;
+    top: 250px;
+    right: 863px;
+}
+.genresLabel{
+    position: absolute;
+    top: 350px;
+    right: 820px;
+}
+.dobLabel{
+    position: absolute;
+    top: 550px;
+    right: 835px;
+}
+button.submit{
+    border-radius: 4px;
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    top: 630px;
+    right: 682.5px;
+    width: 250px;
+    height: 40px;
+}
