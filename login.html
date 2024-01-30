@@ -3,6 +3,7 @@
     <head>
         <title>Flicks Login</title>
         <link rel="stylesheet" href="loginStyles.css">
+        <script src="loginScript.js"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -16,11 +17,13 @@
         <header class="sign-in">
             <h3>Already have an account?</h3>
         </header>
-        <input type="text" class="emailInput" placeholder="Email Address">
-        <input type="text" class="passwordInput" placeholder="Password">
-        <button class="loginButton">Login</button>
+        <input type="text" class="emailInput" placeholder="Email Address" id="email">
+        <input type="text" class="passwordInput" placeholder="Password" id="password">
+        <button class="loginButton" onclick="retreiveLoginParams()">Login</button>
         <button class="settings">Settings</button>
         <button class="background">Background</button>
         <button class="layout">Layout</button>
+        <a href="signUp.html"><button class="sign-up">Sign Up</button></a>
     </body>
 </hmtl>
+
