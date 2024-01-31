@@ -8,10 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <a href="login.html"><button class="Login">Login</button></a>
         <form method="post" action="">
-            <a href="login.html"><button class="Login">Login</button></a>
             <button class="settings">
-                <img src='settingsIcon.png' class='settingIcon'></img>Settings
+                Settings
             </button>
             <button class="layout">Layout</button>
             <button class="background">Background</button>
