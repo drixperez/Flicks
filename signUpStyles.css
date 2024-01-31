@@ -1,5 +1,5 @@
 body {
-    background-color: #cddedd;
+    background-color: #B1C1C4;
     margin: 0;
     padding: 0;
 }
@@ -51,6 +51,7 @@ button.background{
     right: 0px;
 }
 .emailInp{
+    color:#848482;
     border-radius: 4px;
     position: absolute;
     top: 240px;
@@ -59,6 +60,7 @@ button.background{
     height: 40px;
 }
 .usernameInp{
+    color:#848482;
     border-radius: 4px;
     position: absolute;
     top: 170px;
@@ -67,6 +69,7 @@ button.background{
     height: 40px;
 }
 .passwordInp{
+    color:#848482;
     border-radius: 4px;
     position: absolute;
     top: 320px;
@@ -75,6 +78,7 @@ button.background{
     height: 40px;
 }
 .genrePreferences{
+    color:#848482;
     border-radius: 4px;
     position: absolute;
     top: 400px;
@@ -83,6 +87,7 @@ button.background{
     height: 150px;
 }
 .dob{
+    color:#848482;
     border-radius: 4px;
     position: absolute;
     top: 600px;
@@ -91,29 +96,39 @@ button.background{
     height: 40px;
 }
 .usernameLabel{
+    font-family: Georgia;
+    color:#848482;
     position: absolute;
     top: 150px;
-    right: 860px;
+    right: 855px;
 }
 .emailLabel{
+    font-family: Georgia;
+    color:#848482;
     position: absolute;
     top: 220px;
-    right: 830px;
+    right: 825px;
 }
 .passwordLabel{
+    font-family: Georgia;
+    color:#848482;
     position: absolute;
     top: 300px;
-    right: 863px;
+    right: 860px;
 }
 .genresLabel{
+    font-family: Georgia;
+    color:#848482;
     position: absolute;
     top: 380px;
-    right: 820px;
+    right: 808px;
 }
 .dobLabel{
+    font-family: Georgia;
+    color:#848482;
     position: absolute;
     top: 580px;
-    right: 835px;
+    right: 830px;
 }
 .sign-up{
     font-family: Georgia;
