@@ -1,0 +1,38 @@
+body {
+    background-color:#81868C;
+    margin: 0;
+    padding: 0;
+}
+.Flicks{
+    font-family: Impact;
+    position: absolute;
+    top: 0px;
+    right: 1380px;
+}
+.Flicks-Logo{
+    position: absolute;
+    top: 0px;
+    right: 1450px;
+}
+.home-header{
+    font-family: Georgia;
+    font-size: xx-large;
+    position: absolute;
+    top: 0px;
+    right: 730px;
+}
+.search-bar{
+    position: absolute;
+    top: 150px;
+    right: 550px;
+    width: 300px;
+    height: 30px;
+}
+button.searchButton{
+    background-color: black;
+    position: absolute;
+    top: 150px;
+    right: 870px;
+    width: 40px;
+    height: 35.5px;
+}
