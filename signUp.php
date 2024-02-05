@@ -9,10 +9,8 @@
     </head>
     <body>
         <a href="login.html"><button class="Login">Login</button></a>
+        <a href="settings.php"><button class="settings">Settings</button></a>
         <form method="post" action="">
-            <button class="settings">
-                Settings
-            </button>
             <button class="layout">Layout</button>
             <button class="background">Background</button>
             <button class="submit" onclick="signUpConfirmed()">Submit</button>
@@ -33,7 +31,7 @@
             <input type="text" class="emailInp" placeholder="Email Address" name="email" id="email">
             <input type="text" class="usernameInp" placeholder="Username" name="username" id="username">
             <input type="text" class="passwordInp" placeholder="Password" name="password" id="password">
-            <input type="text" class="genrePreferences" placeholder="Genre Preferences" name="genresid="genres>
+            <input type="text" class="genrePreferences" placeholder="Genre Preferences" name="genres" id="genres">
             <input type="date" class="dob" placeholder="Date Of Birth" name="dob" id="dob">
         </form>
         <?php 
