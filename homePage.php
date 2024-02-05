@@ -16,9 +16,10 @@
             <button class="searchButton" onclick="searchBar()"></button>
         </form>
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $search_input = $_POST["search"];
-        }
+        // include 'signUp.php';
+        // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        //     $search_input = $_POST["search"];
+        // }
         ?>
     </body>
 </html>
