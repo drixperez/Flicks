@@ -9,17 +9,25 @@
     </head>
     <body>
         <h2 class="Flicks">Flicks</h2>
-        <img class="Flicks-Logo" src="FlicksLogo.png" width="65" height="65">
-        <h1 class="home-header">Home</h1>
+        <div class="image">
+            <img src="Flicks.png" alt="the flicks logo">
+        </div>
+        <h1 class="home-header">Unlimited Films and TV Shows </h1>
         <form method="post" action="">
-            <input type="text" class="search-bar" placeholder="Search" name="search" id="search">
-            <button class="searchButton" onclick="searchBar()"></button>
+            <input type="text" class="search-bar" placeholder="Enter you text here:" name="search" id="search">
+            <button class="searchButton" onclick="searchBar()">Enter</button>
         </form>
-        <?php
-        // include 'signUp.php';
-        // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        //     $search_input = $_POST["search"];
-        // }
-        ?>
+        <div class="Flicky">
+            <h3>Flicks</h3>
+        </div>
+        <a href="settings.html"><button class="settings" onclick="">Settings</button></a>
+        <a href="login.html"><button class="login">Login</button></a>
+        <div class="flicks-container">
+            <div>Film1</div>
+            <div>Film2</div>
+            <div>Film3</div>
+            <div>Film4</div>
+        </div>
+        
     </body>
 </html>
