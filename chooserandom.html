@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Streaming Availability</title>
+</head>
+<body>
+
+<h1>Get Random Film</h1>
+
+<!-- success display area -->
+<div id="result"></div>
+
+<!-- Button to trigger getRandom function -->
+<button onclick="fetchRandom()">Get Random Film</button>
+
+<script>
+
+// URL parameters - THESE SHOULD BE FROM DATABASE
+const services = 'netflix,prime.subscription,all4,apple,iplayer,now,wow';
+const country = 'gb';
+const genres = '14,12,16,18,27,37,35';
+const genres_relation = 'or';
+const output_language = 'en';
+const order_by = 'popularity_alltime';
+var cursor = '';
+// NOTE THIS DOESNT FILTER BY RATING
+
+// Function to fetch data and populate array of dictionaries
+async function fetchRandom() {
+  try {
+    // Construct the URL based on parameters
+    const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${services}&country=${country}&cursor=${cursor}&genres=${genres}&genres_relation=${genres_relation}&output_language=${output_language}&order_by=${order_by}`;
+    
+    // Define options for the fetch request
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '20d3a2cb72msh3c393cf1fc1b724p1c0fbcjsn994e43382dd1',
+        'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+      }
+    };
+
+    const response = await fetch(url, options);
+    const ssdata = await response.json();    
+    // Check if ssdata is empty
+    if (ssdata) {
+      // Generate a random index within the length of ssdata array
+      const randomIndex = Math.floor(Math.random() * (ssdata.result.length));      
+      const imdbID = ssdata.result[randomIndex].imdbId; 
+    //   Get the imdb data for the randomly chosen film
+      const imdbData = await fetchIMDbData(imdbID); 
+
+      // Create a dictionary for the film
+      const filmInfo = {
+          services: ssdata.result[randomIndex].streamingInfo.gb,
+          title: ssdata.result[randomIndex].title,
+          year: ssdata.result[randomIndex].year,
+          cast: ssdata.result[randomIndex].cast,
+          directors: ssdata.result[randomIndex].directors,
+          rating: imdbData.ratingsSummary.aggregateRating, 
+          blurb: ssdata.result[randomIndex].overview, 
+          image: imdbData.primaryImage.url,
+          imdbId: imdbID
+      };
+      //   Update the cursor for the next request (so that when the next film is requested the same film isnt selected)
+      if (ssdata['hasMore']){
+        cursor = ssdata['nextCursor'];
+      }else{
+        cursor = "";
+      }
+      
+      // Display success message and the film information
+      console.log("Film information:", filmInfo);
+      document.getElementById('result').textContent = JSON.stringify(filmInfo, null, 2);
+    } else {
+      console.log("No data found");
+      document.getElementById('result').textContent = "No data found";
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    document.getElementById('result').textContent = "Error fetching data. Please try again later.";
+  }
+}
+
+// Function to fetch IMDb data for a specific IMDb ID
+async function fetchIMDbData(imdbID) {
+  const url = 'https://imdb146.p.rapidapi.com/v1/title/?id='+imdbID;
+  const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '8446d3330bmsh92d50f888289f11p13c2eejsnc4803bf05ae9',
+		'X-RapidAPI-Host': 'imdb146.p.rapidapi.com'
+	}
+};
+
+const response2 = await fetch(url, options);
+const imdb_info = await response2.json();
+return imdb_info
+}
+
+</script>
+
+</body>
+</html>
