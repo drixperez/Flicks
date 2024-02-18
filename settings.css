@@ -1,0 +1,65 @@
+body{
+    background-color:#B9515B;
+    margin: 0;
+    padding: 0;
+}
+.Flicks-Logo{
+    position: absolute;
+    top: 0px;
+    right: 1450px;
+}
+.FlicksHeader{
+    font-family: Impact;
+    position: absolute;
+    top: 0px;
+    right: 1380px;
+}
+.settings{
+    font-family: Georgia;
+    position: absolute;
+    top: 100px;
+    right: 725px;
+}
+button.details{
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 200px;
+    right: 690px;
+}
+/* button.language{
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 300px;
+    right: 690px;
+} */
+button.favourite{
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 400px;
+    right: 690px;
+}
+button.general{
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 500px;
+    right: 690px;
+}
+select.languageChoice{
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 300px;
+    right: 690px;
+}
