@@ -1,0 +1,346 @@
+body {
+    background-color: #B1C1C4;
+    margin: 0;
+    padding: 0;
+}
+.LoginHeader{
+    font-family:'Concert One', sans-serif;
+    height:50px;
+    background-color:#A26870;
+    color:black;
+    text-align:center;
+    padding:0;
+    position: absolute;
+    top: 100px;
+    right: 700px;
+}
+button.Login{
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 0px;
+    right: 200px;
+}
+button.settings{
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 0px;
+    right: 0px;
+}
+button.layout{
+    background-color:#2E2E2F;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 100px;
+    right: 200px;
+}
+button.background{
+    background-color:#2E2E2F;
+    color:#ffffff;
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    top: 100px;
+    right: 0px;
+}
+.passwordInp{
+    color:#848482;
+    border-radius: 4px;
+    position: absolute;
+    top: 170px;
+    right: 680px;
+    width: 250px;
+    height: 40px;
+}
+.emailInp{
+    color:#848482;
+    border-radius: 4px;
+    position: absolute;
+    top: 100px;
+    right: 680px;
+    width: 250px;
+    height: 40px;
+}
+.passwordCInp{
+    color:#848482;
+    border-radius: 4px;
+    position: absolute;
+    top: 240px;
+    right: 680px;
+    width: 250px;
+    height: 40px;
+}
+.genrePreferences{
+    color:#848482;
+    border-radius: 4px;
+    position: absolute;
+    top: 400px;
+    right: 680px;
+    width: 250px;
+    height: 150px;
+}
+.dob{
+    color:#848482;
+    border-radius: 4px;
+    position: absolute;
+    top: 590px;
+    right: 680px;
+    width: 250px;
+    height: 40px;
+}
+.emailLabel{
+    font-family: Georgia;
+    color:#848482;
+    position: absolute;
+    top: 80px;
+    right: 822px;
+}
+.passwordLabel{
+    font-family: Georgia;
+    color:#848482;
+    position: absolute;
+    top: 150px;
+    right: 860px;
+}
+.passwordCLabel{
+    font-family: Georgia;
+    color:#848482;
+    position: absolute;
+    top: 220px;
+    right: 797px;
+}
+.genresLabel{
+    font-family: Georgia;
+    color:#848482;
+    position: absolute;
+    top: 395px;
+    right: 808px;
+}
+.streamingLabel{
+    font-family: Georgia;
+    color:#848482;
+    position: absolute;
+    top: 300px;
+    right: 804px;
+}
+.dobLabel{
+    font-family: Georgia;
+    color:#848482;
+    position: absolute;
+    top: 570px;
+    right: 830px;
+}
+.sign-up{
+    font-family: 'Concert One', sans-serif;
+    position: absolute;
+    top: 0px;
+    right: 760px;
+}
+.Flicks{
+    font-family: 'Concert One', sans-serif;
+    position: absolute;
+    top: 0px;
+    right: 1380px;
+}
+button.submit{
+    border-radius: 4px;
+    background-color:#000000;
+    color:#ffffff;
+    position: absolute;
+    top: 650px;
+    right: 682.5px;
+    width: 250px;
+    height: 40px;
+}
+.Flicks-Logo{
+    position: absolute;
+    top: 0px;
+    right: 1450px;
+}
+.action{
+    position: absolute;
+    top: 420px;
+    right: 920px;
+}
+.actionLabel{
+    position: absolute;
+    top: 420px;
+    right: 870px;
+}
+.adventure{
+    position: absolute;
+    top: 440px;
+    right: 920px;
+}
+.adventureLabel{
+    position: absolute;
+    top: 440px;
+    right: 846px;
+}
+.animation{
+    position: absolute;
+    top: 460px;
+    right: 920px;
+}
+.animationLabel{
+    position: absolute;
+    top: 460px;
+    right: 846px;
+}
+.comedy{
+    position: absolute;
+    top: 480px;
+    right: 920px;
+}
+.comedyLabel{
+    position: absolute;
+    top: 480px;
+    right: 860px;
+}
+.crime{
+    position: absolute;
+    top: 500px;
+    right: 920px;
+}
+.crimeLabel{
+    position: absolute;
+    top: 500px;
+    right: 874px;
+}
+.drama{
+    position: absolute;
+    top: 520px;
+    right: 920px;
+}
+.dramaLabel{
+    position: absolute;
+    top: 520px;
+    right: 870px;
+}
+.fantasy{
+    position: absolute;
+    top: 420px;
+    right: 770px;
+}
+.fantasyLabel{
+    position: absolute;
+    top: 420px;
+    right: 715px;
+}
+.history{
+    position: absolute;
+    top: 440px;
+    right: 770px;
+}
+.historyLabel{
+    position: absolute;
+    top: 440px;
+    right: 717px;
+}
+.horror{
+    position: absolute;
+    top: 460px;
+    right: 770px;
+}
+.horrorLabel{
+    position: absolute;
+    top: 460px;
+    right: 721px;
+}
+.musical{
+    position: absolute;
+    top: 480px;
+    right: 770px;
+}
+.musicalLabel{
+    position: absolute;
+    top: 480px;
+    right: 713px;
+}
+.mystery{
+    position: absolute;
+    top: 500px;
+    right: 770px;
+}
+.mysteryLabel{
+    position: absolute;
+    top: 500px;
+    right: 711px;
+}
+.romance{
+    position: absolute;
+    top: 520px;
+    right: 770px;
+}
+.romanceLabel{
+    position: absolute;
+    top: 520px;
+    right: 704px;
+}
+.scifi{
+    position: absolute;
+    top: 540px;
+    right: 830px;
+}
+.scifiLabel{
+    position: absolute;
+    top: 540px;
+    right: 790px;
+}
+.netflix{
+    position: absolute;
+    top: 330px;
+    right: 920px;
+}
+.netflixLabel{
+    position: absolute;
+    top: 330px;
+    right: 870px;
+}
+.prime{
+    position: absolute;
+    top: 350px;
+    right: 920px;
+}
+.primeLabel{
+    position: absolute;
+    top: 350px;
+    right: 835px;
+}
+.disney{
+    position: absolute;
+    top: 370px;
+    right: 920px;
+}
+.disneyLabel{
+    position: absolute;
+    top: 370px;
+    right: 861px;
+}
+.max{
+    position: absolute;
+    top: 330px;
+    right: 770px;
+}
+.maxLabel{
+    position: absolute;
+    top: 330px;
+    right: 700px;
+}
+.paramount{
+    position: absolute;
+    top: 350px;
+    right: 770px;
+}
+.paramountLabel{
+    position: absolute;
+    top: 350px;
+    right: 689px;
+}
