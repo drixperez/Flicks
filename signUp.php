@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- This is Ghiles' latest sign up page as of 18/02/2024  -->
+<!-- This is Ghiles latest sign up page as of 18/02/2024  -->
 <html lang="en">
     <head>
         <title>Sign Up</title>
