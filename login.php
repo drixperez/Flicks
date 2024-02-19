@@ -12,7 +12,7 @@ $database_pass = "LucyMegan05";
 $database_name = "2023_comp10120_cm5";
 
 // Create connection
-$con = new mysqli($servername, $username, $password, $dbname);
+$con = new mysqli($database_host, $database_user, $database_pass, $database_name);
 // Check connection
 if ($con->connect_errno) {
   echo "Connection failed";
