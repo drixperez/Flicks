@@ -35,9 +35,10 @@ if ($con->connect_errno) {
           //read from database
           $query = $con -> query("SELECT * FROM `user` WHERE `email` = '$email'");
           //$result = mysqli_query($con, $query);
-          //echo"where does it break";
+          echo"where does it break";
           if($query)
           {
+            echo"here??";
             if($result && mysqli_num_rows($result) > 0)
             {
               $user_data = mysqli_fetch_assoc($result);
