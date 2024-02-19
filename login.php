@@ -33,10 +33,11 @@ if ($con->connect_errno) {
         echo "$password";
         if(!empty($email) && !empty($password))
         {
+          echo"output3";
           //read from database
           $query = "select * from user where email = '$email'";
           $result = mysqli_query($con, $query);
-          echo"output3";
+          echo"where does it break";
           if($result)
           {
             if($result && mysqli_num_rows($result) > 0)
