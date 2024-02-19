@@ -25,21 +25,23 @@ if ($con->connect_errno) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        echo"output 1";
         //something was posted
         $email = $_POST['email'];
         $password = $_POST['psw'];
         
+        echo "$email";
         if(!empty($email) && !empty($password) && !is_numeric($email))
         {
           //read from database
           $query = "select * from user where email = '$email'";
           $result = mysqli_query($con, $query);
+          echo"output3";
           if($result)
           {
             if($result && mysqli_num_rows($result) > 0)
             {
               $user_data = mysqli_fetch_assoc($result);
+              echo"output2";
               if($user_data['password'] === $password)
                 {
                     echo "login successful";
