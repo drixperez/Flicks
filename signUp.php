@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- This is Ghiles latest sign up page as of 18/02/2024  -->
+<!-- Get the screen size to adjust properly -->
 <html lang="en">
     <head>
         <title>Sign Up</title>
@@ -10,8 +10,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <a href="login.html"><button class="Login">Login</button></a>
-        <a href="settings.php"><button class="settings">Settings</button></a>
+        <div class="loginLink">
+            <a href="login.html">Login</a>
+        </div>
+        <div class="settingsLink">
+            <a href="settings.php">Settings</a>
+        </div>
+        <!-- <a href="settings.php"><button class="settings">Settings</button></a> -->
         <form method="post" action="">
             <button class="submit" onclick="signUpConfirmed()">Submit</button>
             <header class="sign-up">
@@ -94,9 +99,6 @@
             $password = $_POST["password"];
             $passwordC = $_POST["passwordC"];
             $dob = $_POST["dob"];
-            if (isset($_POST["action"])) {
-                $
-            }
         }
         ?>
         
