@@ -28,14 +28,13 @@ if ($con->connect_errno) {
         //something was posted
         $email = $_POST['email'];
         $password = $_POST['psw'];
-        
-        echo "$email";
-        echo "$password";
+
         if(!empty($email) && !empty($password))
         {
           echo"output3";
           //read from database
-          $query = "SELECT * FROM `user` WHERE `email` = '$email'";
+          $query = "SELECT * FROM `user` WHERE `user.email` = '$email'";
+          echo $query;
           $result = mysqli_query($con, $query);
           echo"where does it break";
           if($result)
