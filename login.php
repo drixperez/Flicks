@@ -18,17 +18,14 @@ if ($con->connect_errno) {
   echo "Connection failed";
   exit();
 }
-else{
-    echo"output hello";
-}
 
-   
    
    $_SESSION;
 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
+        echo"output 1";
         //something was posted
         $email = $_POST['email'];
         $password = $_POST['psw'];
