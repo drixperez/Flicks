@@ -18,6 +18,9 @@ if ($con->connect_errno) {
   echo "Connection failed";
   exit();
 }
+else{
+    echo"output hello";
+}
 
    
    
@@ -178,7 +181,7 @@ if ($con->connect_errno) {
     </div>
     <p></p>
     <p></p>
-  <form class="login-form" action="" method="post">
+  <form class="login-form" method="post">
     <input type="email" name="email" placeholder="Enter Email Address" required>
     <input type="password" name="psw" placeholder="Enter Password" required>
     <button type = "submit"> Login </button>
