@@ -12,19 +12,23 @@
 <!-- success display area -->
 <div id="result"></div>
 
+<button onclick="fetchDataAndPopulateArray();">Get New Set</button>
+
 <script>
 
 // URL parameters - THESE SHOULD BE FROM DATABASE
-const services = 'all4';
+const services = 'netflix,prime.subscription,all4,apple,iplayer,now,wow';
 const country = 'gb';
-const genres = '14';
+const genres = '14,12,16,18,27,37,35';
+const genres_relation = 'or';
 const output_language = 'en';
 const order_by = 'popularity_alltime';
+var cursor = '';
 
 // Function to fetch data and populate array of dictionaries
 async function fetchDataAndPopulateArray() {
   // Construct the URL based on parameters
-  const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${services}&country=${country}&genres=${genres}&output_language=${output_language}&order_by=${order_by}`;
+  const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${services}&country=${country}&cursor=${cursor}&genres=${genres}&genres_relation=${genres_relation}&output_language=${output_language}&order_by=${order_by}`;
   
   // Define options for the fetch request
   const options = {
@@ -36,10 +40,7 @@ async function fetchDataAndPopulateArray() {
   };
 
   const response = await fetch(url, options);
-  const ssdata = await response.json();
-  
-  // Log the data from the streaming availability API
-  console.log("Streaming Availability API Data:", ssdata);
+  const ssdata = await response.json()
   
   // Create an empty array to store film information
   const filmsArray = [];
@@ -64,6 +65,13 @@ async function fetchDataAndPopulateArray() {
       };
 
       filmsArray.push(filmInfo);
+  }
+  console.log(ssdata['hasMore'])
+  if (ssdata['hasMore']){
+        cursor = ssdata['nextCursor'];
+        console.log(cursor)
+  }else{
+        cursor = '';
   }
 
   
@@ -100,14 +108,8 @@ async function fetchIMDbData(imdbId) {
 
 const response2 = await fetch(url, options);
 const imdb_info = await response2.json();
-console.log(imdb_info)
 return imdb_info
 }
-
-
-// Call the function to fetch data and populate the array of dictionaries
-fetchDataAndPopulateArray();
-
 </script>
 
 </body>
