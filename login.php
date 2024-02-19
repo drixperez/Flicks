@@ -35,7 +35,7 @@ if ($con->connect_errno) {
         {
           echo"output3";
           //read from database
-          $query = "select * from user where email = '$email'";
+          $query = "SELECT * FROM `user` WHERE `email` = '$email'";
           $result = mysqli_query($con, $query);
           echo"where does it break";
           if($result)
