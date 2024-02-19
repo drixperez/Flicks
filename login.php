@@ -32,7 +32,9 @@ if ($con->connect_errno) {
         if(!empty($email) && !empty($password))
         {
           //read from database
-          $query = $con -> query("SELECT * FROM `user` WHERE `email` = '$email'");
+          $query = "SELECT * FROM `user` WHERE `email` = '$email'";
+          $result = mysqli_query($con, $query);
+          echo mysqli_num_rows($result);
           if($query)
           {
             if($result && mysqli_num_rows($result) > 0)
