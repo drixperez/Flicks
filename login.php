@@ -30,7 +30,8 @@ if ($con->connect_errno) {
         $password = $_POST['psw'];
         
         echo "$email";
-        if(!empty($email) && !empty($password) && !is_numeric($email))
+        echo "$password";
+        if(!empty($email) && !empty($password))
         {
           //read from database
           $query = "select * from user where email = '$email'";
