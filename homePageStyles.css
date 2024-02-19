@@ -5,12 +5,12 @@ body {
 }
 .Flicks{
     font-family: Impact;
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 1380px;
 }
 .Flicks-Logo{
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 1450px;
 }
@@ -55,7 +55,7 @@ button.searchButton{
     font: Arial;
     font-size: 20px;
     background-color: rgb(91, 68, 68);
-    position: absolute;
+    position: fixed;
     top: 180px;
     left: 610px;
     width: 60px;
@@ -71,6 +71,7 @@ button.searchButton{
     left:80px
 }
 .flicks-container > div{
+    
 background-color: rgb(130, 81, 81);
 width: 200px;
 line-height: 200px;
