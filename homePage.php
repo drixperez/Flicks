@@ -14,7 +14,7 @@
         </div>
         <h1 class="home-header">Unlimited Films and TV Shows </h1>
         <form method="post" action="">
-            <input type="text" class="search-bar" placeholder="Enter you text here:" name="search" id="search">
+            <input type="text" class="search-bar" placeholder="Enter your text here:" name="search" id="search">
             <button class="searchButton" onclick="searchBar()">Enter</button>
         </form>
         <div class="Flicky">
