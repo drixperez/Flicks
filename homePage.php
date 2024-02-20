@@ -19,6 +19,7 @@ $sql = "SELECT genres.GenreID FROM genres WHERE (UserGenres.genreID == genres.ge
 
 $result = $conn->query($sql);
 
+echo("Attempt");
 echo($result);
 
 ?>
