@@ -20,6 +20,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
     $passwordC = $_POST["passwordC"];
     $dob = $_POST["dob"];
+    $query = "select * from user where email = '$email'";
+    $result = mysqli_query($con, $query);
+    if (mysqli_num_rows($result) > 0) 
+    {
+        $row = mysqli_fetch_array($result);
+        if(isset($row['email']))
+        {
+            echo "email already exists<br><br>";
+            echo "<a href='https://web.cs.manchester.ac.uk/p47083lt/cm5/login.php' class=button>login</a>";
+            die;
+        } else {
+
+        }
+    }
+    if($password == $password2)
+    {
+        $write = "INSERT INTO `user`(`email`, `password`, `DOB`) VALUES ('$user_id', '$email', '$password','$dob')";
+        mysqli_query($con, $write);
+
+    } else {
+        echo "passwords do not match please try again";
+        die;
+        
+    }
 
 
 }
