@@ -13,13 +13,17 @@ if ($con->connect_errno) {
   exit();
 }
 
+if ($con->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 $userId_parameter = 3;
 
 $sql = "SELECT genres.GenreID FROM genres WHERE (UserGenres.genreID == genres.genreID) AND (UserGenres.userID == ($userId_parameter))";
 
 $result = $conn->query($sql);
 
-echo("Attempt");
+echo "Attempt";
 echo($result);
 
 ?>
