@@ -50,10 +50,20 @@ async function fetchDataAndPopulateArray() {
       filmsArray.push(filmInfo);
   }
 
+
+
   
   // Display success message and the array of film information
   console.log("Array of film information:", filmsArray); // Log the array to the console
-  document.getElementById('result').textContent = "Check console log for films array";
+  // document.getElementById('result').textContent = "Check console log for films array";
+  for (let i = 0; i < 12; i++) { //
+    const currentFilm = filmsArray[i];
+    const title = document.getElementById('whatever ama names it');
+    const image = document.getElementById('whatever ama names it');
+    image.src = currentFilm.image;
+    title = currentFilm.title;
+    console.log(title);
+  }
 }
 
 // This function handles errors e.g exceeding request quote
@@ -91,5 +101,6 @@ return imdb_info
 
 // Call the function to fetch data and populate the array of dictionaries
 fetchDataAndPopulateArray();
+
 
 
