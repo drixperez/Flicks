@@ -1,3 +1,35 @@
+<?php
+session_start();
+
+error_reporting (E_ALL ^ E_NOTICE);
+   
+$database_host = "dbhost.cs.man.ac.uk";
+$database_user = "p47083lt";
+$database_pass = "LucyMegan05";
+$database_name = "2023_comp10120_cm5";
+
+// Create connection
+$con = new mysqli($database_host, $database_user, $database_pass, $database_name);
+// Check connection
+if ($con->connect_errno) {
+  echo "Connection failed";
+  exit();
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email_address = $_POST["email"];
+    $password = $_POST["password"];
+    $passwordC = $_POST["passwordC"];
+    $dob = $_POST["dob"];
+
+
+}
+   
+   $_SESSION;
+
+
+?>
+
+
 <!DOCTYPE html>
 <!-- Get the screen size to adjust properly -->
 <html lang="en">
@@ -33,9 +65,9 @@
             <label for="passwordInp" class="passwordCLabel">Confirm Password *</label>
             <label for="genresPreferences" class="genresLabel">Genre Preferences</label>
             <label for="dob" class="dobLabel">Date Of Birth *</label>
-            <input type="text" class="passwordInp" placeholder="Password" name="password" id="password">
-            <input type="text" class="emailInp" placeholder="Email Address" name="email" id="email">
-            <input type="text" class="passwordCInp" placeholder="Confirm Password" name="passwordC" id="passwordC">
+            <input type="text" class="passwordInp" placeholder="Password" name="password" id="password" required>
+            <input type="text" class="emailInp" placeholder="Email Address" name="email" id="email" required>
+            <input type="text" class="passwordCInp" placeholder="Confirm Password" name="passwordC" id="passwordC" required>
             <!-- <input type="text" class="genrePreferences" placeholder="Genre Preferences" name="genres" id="genres"> -->
             <div class="genres">
                 <input type="checkbox" class="action" id="action" name="action" value="Action">
@@ -78,7 +110,7 @@
                 <input type="checkbox" class="paramount" id="paramount" name="paramount" value="Paramount">
                 <label class="paramountLabel" for="paramount">Paramount+</label>
             </div>
-            <input type="date" class="dob" placeholder="Date Of Birth" name="dob" id="dob">
+            <input type="date" class="dob" placeholder="Date Of Birth" name="dob" id="dob" required>
         </form>
         <?php 
         $action = FALSE;
@@ -94,12 +126,7 @@
         $mystery = FALSE;
         $romance = FALSE;
         $scifi = FALSE;
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $email_address = $_POST["email"];
-            $password = $_POST["password"];
-            $passwordC = $_POST["passwordC"];
-            $dob = $_POST["dob"];
-        }
+
         ?>
         
     </body>
