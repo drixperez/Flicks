@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
     $passwordC = $_POST["passwordC"];
     $dob = $_POST["dob"];
-    $query = "select * from user where email = '$email'";
+    $query = "SELECT * FROM `user` WHERE `email` = '$email'";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) 
     {
