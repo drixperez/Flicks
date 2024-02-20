@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         }
     }
-    if($password == $password2)
+    if($password == $passwordC)
     {
         $write = "INSERT INTO `user`(`email`, `password`, `DOB`) VALUES ('$user_id', '$email', '$password','$dob')";
         mysqli_query($con, $write);
