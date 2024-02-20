@@ -36,8 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if($password == $passwordC)
     {
-        $write = "INSERT INTO `user`(`email`, `password`, `DOB`) VALUES ('$user_id', '$email', '$password','$dob')";
+        $write = "INSERT INTO `user`(`email`, `password`, `DOB`) VALUES ('$email', '$password','$dob')";
         mysqli_query($con, $write);
+        //retreive user id for this entry
+
 
     } else {
         echo "passwords do not match please try again";
