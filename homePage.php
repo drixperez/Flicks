@@ -1,34 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-$servername = "dbhost.cs.man.ac.uk";
-$username = "y93730me";
-$password = "Flowers1";
-$dbname = "2023_comp10120_cm5";
-
-$con = new mysqli($database_host, $database_user, $database_pass, $database_name);
-if ($con->connect_errno) {
-  echo "Connection failed";
-  exit();
-}
-
-if ($con->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$userId_parameter = 3;
-
-$sql = "SELECT genres.GenreID FROM genres WHERE (UserGenres.genreID == genres.genreID) AND (UserGenres.userID == ($userId_parameter))";
-
-$result = $conn->query($sql);
-
-echo "Attempt";
-echo($result);
-
-?>
-
-
     <head>
         <title>Home Page</title>
         <link rel="stylesheet" href="homePageStyles.css">
