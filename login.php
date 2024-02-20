@@ -34,13 +34,11 @@ if ($con->connect_errno) {
           //read from database
           $query = "SELECT * FROM `user` WHERE `email` = '$email'";
           $result = mysqli_query($con, $query);
-          echo mysqli_num_rows($result);
           if($query)
           {
             if($result && mysqli_num_rows($result) > 0)
             {
               $user_data = mysqli_fetch_assoc($result);
-              echo"output2";
               if($user_data['password'] === $password)
                 {
                     echo "login successful";
