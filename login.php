@@ -58,6 +58,8 @@ if ($con->connect_errno) {
     }
 ?>
 
+<!-- This is Tong's latest login page as of 18/02/2024 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -177,10 +179,10 @@ if ($con->connect_errno) {
     </div>
     <p></p>
     <p></p>
-  <form class="login-form" method="post">
-    <input type="email" name="email" placeholder="Enter Email Address" required>
-    <input type="password" name="psw" placeholder="Enter Password" required>
-    <button type = "submit"> Login </button>
+  <form class="login-form" action="" method="post">
+    <input type="email" name="email" placeholder="email address" required>
+    <input type="password" name="password" placeholder="password" required>
+    <input type="submit" value="login">
   </form>
 </div>
 </body>
