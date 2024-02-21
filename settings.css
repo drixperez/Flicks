@@ -45,6 +45,7 @@ button.password-change-submit{
     top: 30%;
 }
 .pop-up{
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
