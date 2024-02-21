@@ -18,6 +18,7 @@
             <img src="FlicksLogo.png" width="65" height="65">
         </header>
         <button class="passwordChange" onclick="openChangePasswordPopUp()">Change Password</button>
+        <button class="emailChange" onclick="openChangeEmailPopUp()">Change Email</button>
         <div id="overlay" class="overlay"></div>
 
 
@@ -32,6 +33,12 @@
             <input type="text" class="secondPasswordEntry" id="2ndPassword" name="2ndPassword", placeholder="Confirm Password">
             <!-- </form> -->
         </div>
+
+        <div id="emailPopUp" class="pop-up">
+            <button class="email-close-btn" onclick="closeEmailPopUp()">X</button>
+            <h2>Email Change</h2>
+            <button class="emai-change-submit">Submit</button>
+            <input type="text" class="firstEmailEntry" id="1stEmail" name="
 
 
 
