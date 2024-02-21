@@ -19,9 +19,9 @@ body {
     text-align: center;
     font-family: Georgia;
     font-size: 45px;
-    position: fixed;
-    top: 50px;
-    left: 200px;
+    position: relative;
+    top: 20px;
+    left: 650px;
 
     
 }
@@ -31,10 +31,10 @@ body {
     height: 5px;
 }
 .search-bar{
-    position: fixed;
-    top: 180px;
-    left: 300px; ;
-    width: 300px;
+    position: sticky;
+    top: 280px;
+    left: 800px; ;
+    width: 400px;
     height: 30px;
 }
 button.settings{
@@ -55,20 +55,22 @@ button.searchButton{
     font: Arial;
     font-size: 20px;
     background-color: rgb(91, 68, 68);
-    position: fixed;
+    position: sticky;
     top: 180px;
-    left: 610px;
+    left: 1200px;
     width: 60px;
     height: 35.5px;
 
 }
 .flicks-container{
-    display:flex;
-    flex-wrap:nowrap;
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
     background-color: #414346;
-    position: fixed;
-    top:250px;
-    left:80px
+    position: absolute;
+    gap:67px;
+
+    top:220px;
+    left:0px
 }
 .flicks-container > div{
     
