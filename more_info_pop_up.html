@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup Window Example</title>
+<style>
+/* Styling for the popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #353535; /* Popup color */
+  color: #81868C; /* Text color */
+  padding: 5vh;
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded edges */
+  font-family: Arial, sans-serif; /* Font family */
+  font-size: 16px; /* Font size */
+}
+
+.popup a {
+  color: #B9515B; /* Hyperlink color */
+}
+
+.info_button{
+  position: fixed;
+  background-color: #B9515B; /* Popup color */
+  color: #353535; /* Text color */
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none; /* Remove border */
+  border-radius: 15px; /* Rounded edges */
+  font-family: Arial, sans-serif; /* Font family */
+  font-size: 16px; /* Font size */
+  align-self: center;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HERE WE ONLY HAVE ONE MORE INFO BUTTON -->
+<button onclick="openPopup('openPopupBtn3')" id="openPopupBtn3" class ="info_button">Open Popup</button>
+
+<!-- Popup content -->
+<div id="popup" class="popup">
+  <h2 id="popupTitle"></h2>
+  <p id="popupBlurb"></p>
+  <p id="popupYear"></p>
+  <p id="popupCast"></p>
+  <p id="popupRating"></p>
+  <p id="popupDirector"></p>
+  <p id="popupServices"></p>
+  <button onclick="closePopup()" class ="info_button">Close</button>
+</div>
+
+<script>
+// Array constant with popup data
+const popupData = 
+[
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/darling-what-have-you-done-to-your-hair",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "leaving": 32503680000,
+                "availableSince": 1650491390
+            }
+        ],
+        "title": "Darling, Darling, Wendy",
+        "year": 2019,
+        "cast": [
+            "Katherine Sainte Marie",
+            "Drew Hinckley",
+            "Stella Ferguson",
+            "Ty Shelton",
+            "Denise Nicholson"
+        ],
+        "directors": [
+            "Elise Robertson"
+        ],
+        "rating": 7.6,
+        "blurb": "Tom Read Wilson hosts the game show where contestants can win cash and a dream hairstyle",
+        "image": "https://m.media-amazon.com/images/M/MV5BNDBlOWEzOWItOWZkYi00NWJhLWIyNzYtMmZjMzQ2M2QzN2UyXkEyXkFqcGdeQXVyNDgwNzMxOTY@._V1_.jpg",
+        "imdbId": "tt7345932"
+    },
+    {
+        "services": [
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "quality": "hd",
+                "addon": "tvs.sbd.12962",
+                "link": "https://tv.apple.com/gb/show/garth-marenghis-darkplace/umc.cmc.2kvl3qgsydm2n6bo3psiblc6b",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": "USA"
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "availableSince": 1694898361
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "addon": "tvs.sbd.12442",
+                "link": "https://tv.apple.com/gb/show/garth-marenghis-darkplace/umc.cmc.2kvl3qgsydm2n6bo3psiblc6b",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1694898361
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "quality": "hd",
+                "addon": "tvs.sbd.1000371",
+                "link": "https://tv.apple.com/gb/show/garth-marenghis-darkplace/umc.cmc.2kvl3qgsydm2n6bo3psiblc6b",
+                "audios": [
+                    {
+                        "language": "eng",
+                        "region": "USA"
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": "USA"
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "availableSince": 1694898361
+            },
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "sd",
+                "link": "https://www.channel4.com/programmes/garth-marenghis-darkplace",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1650495050
+            }
+        ],
+        "title": "Garth Marenghi's Darkplace",
+        "cast": [
+            "Matthew Holness",
+            "Matt Berry",
+            "Richard Ayoade",
+            "Alice Lowe",
+            "Matt Green",
+            "Graham Linehan",
+            "Sarah Kants"
+        ],
+        "rating": 8.5,
+        "blurb": "Twisted take on an 80s horror show. A director intros his film about a maverick doctor fighting evil under a hospital. Expect dodgy sets, bad actors and cringeworthy fight scenes.",
+        "image": "https://m.media-amazon.com/images/M/MV5BOWIyNDI4M2YtNjI5ZS00NDE3LTk2NmQtZTc1YTUwNjgwYWMyXkEyXkFqcGdeQXVyMjMwNjYyMzE@._V1_.jpg",
+        "imdbId": "tt0397150"
+    },
+    {
+        "services": [
+            {
+                "service": "mubi",
+                "streamingType": "subscription",
+                "quality": "hd",
+                "link": "https://mubi.com/films/how-to-get-ahead-in-advertising",
+                "audios": [],
+                "subtitles": [],
+                "leaving": 1711238400,
+                "availableSince": 1707257213
+            },
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/how-to-get-ahead-in-advertising",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "leaving": 1708055400,
+                "availableSince": 1705495156
+            }
+        ],
+        "title": "How to Get Ahead in Advertising",
+        "year": 1989,
+        "cast": [
+            "Richard E. Grant",
+            "Rachel Ward",
+            "Richard Wilson",
+            "Jacqueline Tong",
+            "Susan Wooldridge",
+            "John Shrapnel",
+            "Hugh Armstrong"
+        ],
+        "directors": [
+            "Bruce Robinson"
+        ],
+        "rating": 6.8,
+        "blurb": "Directed by Bruce Robinson and starring British national treasure Richard E. Grant, this wickedly dark comedy reunites the creative team behind Withnail & I. Deliciously high concept in its Cronenbergian set-up, How to Get Ahead in Advertising is a spirited satire of yuppie culture and the ’80s man.",
+        "image": "https://m.media-amazon.com/images/M/MV5BOGM5ZTA0Y2MtNTM2NS00MDRkLThjMDEtMGEzYjc1MjgzNjQ2XkEyXkFqcGdeQXVyNjMwMjk0MTQ@._V1_.jpg",
+        "imdbId": "tt0097531"
+    },
+    {
+        "services": [
+            {
+                "service": "prime",
+                "streamingType": "subscription",
+                "quality": "sd",
+                "link": "https://www.amazon.co.uk/gp/video/detail/B098KRS5X5/ref=atv_dp",
+                "audios": [
+                    {
+                        "language": "eng",
+                        "region": ""
+                    },
+                    {
+                        "language": "fra",
+                        "region": ""
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "availableSince": 1697555108
+            },
+            {
+                "service": "prime",
+                "streamingType": "buy",
+                "quality": "hd",
+                "link": "https://www.amazon.co.uk/gp/video/detail/B098KRS5X5/ref=atv_dp",
+                "audios": [
+                    {
+                        "language": "eng",
+                        "region": ""
+                    },
+                    {
+                        "language": "fra",
+                        "region": ""
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "price": {
+                    "amount": "5.99",
+                    "currency": "GBP",
+                    "formatted": "5.99 GBP"
+                },
+                "availableSince": 1697555108
+            },
+            {
+                "service": "prime",
+                "streamingType": "rent",
+                "quality": "hd",
+                "link": "https://www.amazon.co.uk/gp/video/detail/B098KRS5X5/ref=atv_dp",
+                "audios": [
+                    {
+                        "language": "eng",
+                        "region": ""
+                    },
+                    {
+                        "language": "fra",
+                        "region": ""
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "price": {
+                    "amount": "3.49",
+                    "currency": "GBP",
+                    "formatted": "3.49 GBP"
+                },
+                "availableSince": 1697555108
+            },
+            {
+                "service": "prime",
+                "streamingType": "rent",
+                "quality": "sd",
+                "link": "https://www.amazon.co.uk/gp/video/detail/B098KRS5X5/ref=atv_dp",
+                "audios": [
+                    {
+                        "language": "eng",
+                        "region": ""
+                    },
+                    {
+                        "language": "fra",
+                        "region": ""
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "price": {
+                    "amount": "2.49",
+                    "currency": "GBP",
+                    "formatted": "2.49 GBP"
+                },
+                "availableSince": 1700563755
+            },
+            {
+                "service": "apple",
+                "streamingType": "buy",
+                "quality": "hd",
+                "link": "https://tv.apple.com/gb/movie/night-of-the-kings/umc.cmc.168srfm5ycrmrjqjm4lxd5wxj?playableId=tvs.sbd.9001%3A1569369675",
+                "audios": [],
+                "subtitles": [],
+                "price": {
+                    "amount": "6.99",
+                    "currency": "GBP",
+                    "formatted": "6.99 GBP"
+                },
+                "availableSince": 1651230452
+            },
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/night-of-the-kings",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "leaving": 1708300800,
+                "availableSince": 1703076183
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "quality": "sd",
+                "addon": "tvs.sbd.12056",
+                "link": "https://tv.apple.com/gb/movie/night-of-the-kings/umc.cmc.168srfm5ycrmrjqjm4lxd5wxj",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1706257399
+            },
+            {
+                "service": "apple",
+                "streamingType": "rent",
+                "quality": "hd",
+                "link": "https://tv.apple.com/gb/movie/night-of-the-kings/umc.cmc.168srfm5ycrmrjqjm4lxd5wxj?playableId=tvs.sbd.9001%3A1569369675",
+                "audios": [],
+                "subtitles": [],
+                "price": {
+                    "amount": "3.49",
+                    "currency": "GBP",
+                    "formatted": "3.49 GBP"
+                },
+                "availableSince": 1651230452
+            }
+        ],
+        "title": "Night of the Kings",
+        "year": 2021,
+        "cast": [
+            "Koné Bakary",
+            "Steve Tientcheu",
+            "Digbeu Jean Cyrille",
+            "Rasmané Ouédraogo",
+            "Issaka Sawadogo",
+            "Denis Lavant",
+            "Abdoul Karim Konaté"
+        ],
+        "directors": [
+            "Philippe Lacôte"
+        ],
+        "rating": 6.5,
+        "blurb": "A young man is sent to &#34;La Maca&#34;, a prison of Ivory Coast in the middle of the forest ruled by its prisoners. With the red moon rising, he is designated by the Boss to be the new &#34;Roman&#34; and must tell a story to the other prisoners.",
+        "image": "https://m.media-amazon.com/images/M/MV5BNDA3NzU2MzYtZjM2Ny00MGVmLTk3YjctODE3OWEzYWIzOTQ5XkEyXkFqcGdeQXVyMjg0NDI1MjU@._V1_.jpg",
+        "imdbId": "tt8132778"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/the-red-door",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1669398764
+            }
+        ],
+        "title": "The Red Door",
+        "cast": [
+            "Lino Guanciale",
+            "Valentina Romani",
+            "Gabriella Pession",
+            "Gaetano Bruno",
+            "Elena Radonicich",
+            "Alessia Barela",
+            "Pierpaolo Spollon"
+        ],
+        "rating": 7,
+        "blurb": "Leonardo Cagliostro, a policeman, dies and decides to stay on Earth in order to find out more about the circumstances of his death and to save his wife, Anna, who's in danger.",
+        "image": "https://m.media-amazon.com/images/M/MV5BOTU2ZTZiMzgtNTA4Ni00YTMyLWI2ZDgtYzYyY2FiOTZhMThiXkEyXkFqcGdeQXVyMTM5MDU0MTY@._V1_.jpg",
+        "imdbId": "tt6134022"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/lazor-wulf",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1650494829
+            }
+        ],
+        "title": "Lazor Wulf",
+        "cast": [
+            "Andre Pascoe",
+            "Vince Staples",
+            "J.D. Witherspoon",
+            "Ettore Ewen",
+            "Reginald VelJohnson",
+            "Quinta Brunson",
+            "D.R.A.M."
+        ],
+        "rating": 5.4,
+        "blurb": "",
+        "image": "https://m.media-amazon.com/images/M/MV5BZWE1Mzk0MDgtN2ViMi00ZTkyLTk4YzMtNjY0YjlmMzBhMzEzXkEyXkFqcGdeQXVyOTg4NDU1MjQ@._V1_.jpg",
+        "imdbId": "tt10133864"
+    },
+    {
+        "services": [
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "quality": "sd",
+                "addon": "tvs.sbd.12056",
+                "link": "https://tv.apple.com/gb/movie/mandibles/umc.cmc.5ryek0euuhpke67h0ekuq2aqz",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1701330646
+            },
+            {
+                "service": "apple",
+                "streamingType": "rent",
+                "quality": "hd",
+                "link": "https://tv.apple.com/gb/movie/mandibles/umc.cmc.5ryek0euuhpke67h0ekuq2aqz?playableId=tvs.sbd.9001%3A1578246381",
+                "audios": [],
+                "subtitles": [],
+                "price": {
+                    "amount": "3.49",
+                    "currency": "GBP",
+                    "formatted": "3.49 GBP"
+                },
+                "availableSince": 1653927730
+            },
+            {
+                "service": "apple",
+                "streamingType": "buy",
+                "quality": "hd",
+                "link": "https://tv.apple.com/gb/movie/mandibles/umc.cmc.5ryek0euuhpke67h0ekuq2aqz?playableId=tvs.sbd.9001%3A1578246381",
+                "audios": [],
+                "subtitles": [],
+                "price": {
+                    "amount": "7.99",
+                    "currency": "GBP",
+                    "formatted": "7.99 GBP"
+                },
+                "availableSince": 1653927730
+            },
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/mandibles",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "leaving": 1708300800,
+                "availableSince": 1705757928
+            }
+        ],
+        "title": "Mandibles",
+        "year": 2020,
+        "cast": [
+            "Grégoire Ludig",
+            "David Marsais",
+            "Adèle Exarchopoulos",
+            "India Hair",
+            "Bruno Lochet",
+            "Coralie Russier",
+            "Roméo Elvis"
+        ],
+        "directors": [
+            "Quentin Dupieux"
+        ],
+        "rating": 6.6,
+        "blurb": "",
+        "image": "https://m.media-amazon.com/images/M/MV5BYTc0NWFmZmUtMTYxNi00ZDZmLWJmNWMtNWUzOGE0Nzg3M2Y4XkEyXkFqcGdeQXVyMzA4MDA0Mjc@._V1_.jpg",
+        "imdbId": "tt10375106"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/mr-pye",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1684314634
+            }
+        ],
+        "title": "Mr. Pye",
+        "cast": [
+            "Derek Jacobi",
+            "Judy Parfitt",
+            "Richard O'Callaghan"
+        ],
+        "rating": 7.7,
+        "blurb": "",
+        "image": "https://m.media-amazon.com/images/M/MV5BODUwYmU4ZDYtZTUzZS00NTNlLWI2NWQtNDVmZmE2MDE2NzYxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTgwNTk5MDU@._V1_.jpg",
+        "imdbId": "tt0307781"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/petite-maman",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "leaving": 1709091600,
+                "availableSince": 1700816936
+            },
+            {
+                "service": "apple",
+                "streamingType": "rent",
+                "quality": "hd",
+                "link": "https://tv.apple.com/gb/movie/petite-maman/umc.cmc.w7odntmjtnfz17f3g5g2bzwu",
+                "audios": [
+                    {
+                        "language": "fra",
+                        "region": ""
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    },
+                    {
+                        "locale": {
+                            "language": "tur",
+                            "region": "TUR"
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "price": {
+                    "amount": "4.99",
+                    "currency": "GBP",
+                    "formatted": "4.99 GBP"
+                },
+                "availableSince": 1654494638
+            },
+            {
+                "service": "apple",
+                "streamingType": "buy",
+                "quality": "hd",
+                "link": "https://tv.apple.com/gb/movie/petite-maman/umc.cmc.w7odntmjtnfz17f3g5g2bzwu",
+                "audios": [
+                    {
+                        "language": "fra",
+                        "region": ""
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    },
+                    {
+                        "locale": {
+                            "language": "tur",
+                            "region": "TUR"
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "price": {
+                    "amount": "9.99",
+                    "currency": "GBP",
+                    "formatted": "9.99 GBP"
+                },
+                "availableSince": 1654494638
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "quality": "hd",
+                "addon": "tvs.sbd.1000249",
+                "link": "https://tv.apple.com/gb/movie/petite-maman/umc.cmc.w7odntmjtnfz17f3g5g2bzwu",
+                "audios": [
+                    {
+                        "language": "fra",
+                        "region": "FRA"
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "deu",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    },
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    },
+                    {
+                        "locale": {
+                            "language": "ita",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    },
+                    {
+                        "locale": {
+                            "language": "tur",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "availableSince": 1654494638
+            }
+        ],
+        "title": "Petite maman",
+        "year": 2021,
+        "cast": [
+            "Joséphine Sanz",
+            "Gabrielle Sanz",
+            "Nina Meurisse",
+            "Stéphane Varupenne",
+            "Margot Abascal",
+            "Florès Cardo",
+            "Josée Schuller"
+        ],
+        "directors": [
+            "Céline Sciamma"
+        ],
+        "rating": 7.4,
+        "blurb": "Nelly has just lost her grandmother and is helping clean out her home. As she explores the house and nearby woods, she meets a neighbour her age. What follows is a tender tale of childhood grief, memory and connection. (French with English subtitles)",
+        "image": "https://m.media-amazon.com/images/M/MV5BM2EyZjE2NWUtNTg4ZC00OThmLTlmMzktMmFkOWRmZTc4ZWMwXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg",
+        "imdbId": "tt13204490"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/teenage-euthanasia",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1650488977
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "addon": "tvs.sbd.12381",
+                "link": "https://tv.apple.com/gb/show/teenage-euthanasia/umc.cmc.y8ypzik66z13x0ewaqsb7eoz",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1705879520
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "addon": "tvs.sbd.10000",
+                "link": "https://tv.apple.com/gb/show/teenage-euthanasia/umc.cmc.y8ypzik66z13x0ewaqsb7eoz",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1694136488
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "quality": "hd",
+                "addon": "tvs.sbd.1000566",
+                "link": "https://tv.apple.com/gb/show/teenage-euthanasia/umc.cmc.y8ypzik66z13x0ewaqsb7eoz",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1694136488
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "addon": "tvs.sbd.1000397",
+                "link": "https://tv.apple.com/gb/show/teenage-euthanasia/umc.cmc.y8ypzik66z13x0ewaqsb7eoz",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1694136488
+            },
+            {
+                "service": "apple",
+                "streamingType": "addon",
+                "quality": "hd",
+                "addon": "tvs.sbd.12962",
+                "link": "https://tv.apple.com/gb/show/teenage-euthanasia/umc.cmc.y8ypzik66z13x0ewaqsb7eoz",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": "USA"
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "availableSince": 1694136488
+            }
+        ],
+        "title": "Teenage Euthanasia",
+        "cast": [
+            "Jo Firestone",
+            "Maria Bamford",
+            "Tim Robinson",
+            "Bebe Neuwirth",
+            "Alyson Levy",
+            "Scott Adsit",
+            "Bumper Robinson"
+        ],
+        "rating": 5.8,
+        "blurb": "Set in near-future inland Florida, Teenage Euthanasia centers around the owners of Tender Endings funeral home, the Fantasy Family: Grandma Baba, her adult children Uncle Pete and Trophy, and Trophy&#39;s teen daughter, Euthanasia (&#34;Annie&#34;).",
+        "image": "https://m.media-amazon.com/images/M/MV5BM2YyYjlkYjUtMzkyMi00NmMzLWFmYTQtMTY0YTE5ZjM0Y2FiXkEyXkFqcGdeQXVyOTU4ODU1NTA@._V1_.jpg",
+        "imdbId": "tt13641028"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "sd",
+                "link": "https://www.channel4.com/programmes/the-aliens",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1650490202
+            }
+        ],
+        "title": "The Aliens",
+        "cast": [
+            "Michael Socha",
+            "Michaela Coel",
+            "Jim Howick",
+            "Bronson Webb",
+            "Chetna Pandya",
+            "Shaun Parkes",
+            "Neil Fitzmaurice"
+        ],
+        "rating": 6.2,
+        "blurb": "A comedic look into a world in which aliens have crash-landed in the UK and are now unwanted immigrants, living in a walled-off section of a UK town.",
+        "image": "https://m.media-amazon.com/images/M/MV5BMjIzMTgyMjcyNl5BMl5BanBnXkFtZTgwNzQ2OTMzODE@._V1_.jpg",
+        "imdbId": "tt5458832"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/the-land-that-time-forgot",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "leaving": 1708958400,
+                "availableSince": 1706451178
+            }
+        ],
+        "title": "The Land That Time Forgot",
+        "year": 1974,
+        "cast": [
+            "Doug McClure",
+            "John McEnery",
+            "Susan Penhaligon",
+            "Keith Barron",
+            "Anthony Ainley",
+            "Godfrey James",
+            "Bobby Parr"
+        ],
+        "directors": [
+            "Kevin Connor"
+        ],
+        "rating": 5.6,
+        "blurb": "",
+        "image": "https://m.media-amazon.com/images/M/MV5BM2MyMTY4OTQtYTA3Mi00N2FmLTk5ZDgtOWU1NGJiN2Y3OWFlXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_.jpg",
+        "imdbId": "tt0073260"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/the-shivering-truth",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1650494880
+            }
+        ],
+        "title": "The Shivering Truth",
+        "cast": [
+            "Vernon Chatman",
+            "Zadie",
+            "Janeane Garofalo",
+            "Robert Kelly",
+            "Miriam Tolan",
+            "Trey Parker",
+            "Zack Pearlman"
+        ],
+        "rating": 8.1,
+        "blurb": "The Shivering Truth seeks to access the unconscious mind with its stop-motion anthology used to tackle topics on life, death and human nature. Darkly surreal and delicately crafted, it delves into riotous daymares that reek of dream logic.",
+        "image": "https://m.media-amazon.com/images/M/MV5BMGY3ZDRjZjYtMjJmZS00OGRhLWE4OGQtOTYxMGRmZjZjN2MxXkEyXkFqcGdeQXVyNjkwMTYxMTE@._V1_.jpg",
+        "imdbId": "tt6905458"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/thelma",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "leaving": 1708141800,
+                "availableSince": 1705581787
+            },
+            {
+                "service": "apple",
+                "streamingType": "rent",
+                "quality": "hd",
+                "link": "https://tv.apple.com/gb/movie/thelma/umc.cmc.6nnro8gq24yklo7aj1e9pgokv",
+                "audios": [
+                    {
+                        "language": "nor",
+                        "region": ""
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": "GBR"
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "price": {
+                    "amount": "3.49",
+                    "currency": "GBP",
+                    "formatted": "3.49 GBP"
+                },
+                "availableSince": 1653926709
+            },
+            {
+                "service": "apple",
+                "streamingType": "buy",
+                "quality": "hd",
+                "link": "https://tv.apple.com/gb/movie/thelma/umc.cmc.6nnro8gq24yklo7aj1e9pgokv",
+                "audios": [
+                    {
+                        "language": "nor",
+                        "region": ""
+                    }
+                ],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": "GBR"
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "price": {
+                    "amount": "7.99",
+                    "currency": "GBP",
+                    "formatted": "7.99 GBP"
+                },
+                "availableSince": 1653926709
+            },
+            {
+                "service": "prime",
+                "streamingType": "rent",
+                "quality": "hd",
+                "link": "https://www.amazon.co.uk/gp/video/detail/B077S6QKJX/ref=atv_dp",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "price": {
+                    "amount": "3.49",
+                    "currency": "GBP",
+                    "formatted": "3.49 GBP"
+                },
+                "availableSince": 1690811035
+            },
+            {
+                "service": "prime",
+                "streamingType": "buy",
+                "quality": "hd",
+                "link": "https://www.amazon.co.uk/gp/video/detail/B077S6QKJX/ref=atv_dp",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "price": {
+                    "amount": "7.99",
+                    "currency": "GBP",
+                    "formatted": "7.99 GBP"
+                },
+                "availableSince": 1690811035
+            },
+            {
+                "service": "prime",
+                "streamingType": "buy",
+                "quality": "sd",
+                "link": "https://www.amazon.co.uk/gp/video/detail/B077S6QKJX/ref=atv_dp",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": true
+                    }
+                ],
+                "price": {
+                    "amount": "6.99",
+                    "currency": "GBP",
+                    "formatted": "6.99 GBP"
+                },
+                "availableSince": 1690811035
+            }
+        ],
+        "title": "Thelma",
+        "year": 2017,
+        "cast": [
+            "Eili Harboe",
+            "Kaya Wilkins",
+            "Henrik Rafaelsen",
+            "Ellen Dorrit Petersen",
+            "Grethe Eltervåg",
+            "Marte Magnusdotter Solem",
+            "Anders Mossling"
+        ],
+        "directors": [
+            "Joachim Trier"
+        ],
+        "rating": 7,
+        "blurb": "A confused religious girl tries to deny her feelings for a female friend who's in love with her. This causes her suppressed subconsciously-controlled psychokinetic powers to reemerge with devastating results.",
+        "image": "https://m.media-amazon.com/images/M/MV5BYzllNGU5NWUtM2Q0ZC00ZWUwLTk1YzItNDcxYWRmMWM4YzIzXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg",
+        "imdbId": "tt6304046"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "hd",
+                "link": "https://www.channel4.com/programmes/your-pretty-face-is-going-to-hell",
+                "audios": [],
+                "subtitles": [],
+                "availableSince": 1650494088
+            }
+        ],
+        "title": "Your Pretty Face Is Going to Hell",
+        "cast": [
+            "Craig Rowin",
+            "Eddie Pepitone",
+            "Henry Zebrowski",
+            "Dana Snyder",
+            "Matt Servitto",
+            "Carolann Utley",
+            "Dustin Diamond"
+        ],
+        "rating": 7.8,
+        "blurb": "",
+        "image": "https://m.media-amazon.com/images/M/MV5BM2E1OTU4NzEtYjk1Zi00ZWFkLTg0OWItZmQ2ZTVlNDlhNTViXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.jpg",
+        "imdbId": "tt2362694"
+    },
+    {
+        "services": [
+            {
+                "service": "all4",
+                "streamingType": "free",
+                "quality": "sd",
+                "link": "https://www.channel4.com/programmes/big-snake",
+                "audios": [],
+                "subtitles": [
+                    {
+                        "locale": {
+                            "language": "eng",
+                            "region": ""
+                        },
+                        "closedCaptions": false
+                    }
+                ],
+                "leaving": 32503680000,
+                "availableSince": 1650493327
+            }
+        ],
+        "title": "Snake",
+        "year": 2018,
+        "cast": [
+            "Huang Kai-Lun",
+            "Xi Meili",
+            "Yang Yong",
+            "Naomen Eerdeni",
+            "Tang Xin",
+            "An Junqi",
+            "Zheng Yue"
+        ],
+        "directors": [
+            "Lin Zhenzhao"
+        ],
+        "rating": 5,
+        "blurb": "A group of people traveling by boat along a river makes the startling discovery of a new breed of mutated snake that has become the king of the jungle. With its enormous size and speed, they quickly realize that their weapons may be no match for this deadly creature.",
+        "image": "https://m.media-amazon.com/images/M/MV5BNTZlOGY3MzYtM2NkYi00NTBiLWIwODAtM2MyZTU4ZGNiZWYxXkEyXkFqcGdeQXVyOTg3Njg0ODU@._V1_.jpg",
+        "imdbId": "tt9477132"
+    }
+];
+
+// Function to open the popup and populate with data based on button id
+function openPopup(btnId) {
+  // Get the button id to determine which popup data to display
+  const popupIndex = parseInt(btnId.replace("openPopupBtn", "")); // Extract the numeric part of the button id
+  console.log(popupIndex);
+
+  // Populate the popup with data from the array constant
+  document.getElementById("popupTitle").textContent = popupData[popupIndex].title;
+  document.getElementById("popupYear").textContent = "Year: " + popupData[popupIndex].year;
+  document.getElementById("popupBlurb").textContent = popupData[popupIndex].blurb;
+  document.getElementById("popupCast").textContent = "Cast: " + popupData[popupIndex].cast;
+  document.getElementById("popupDirector").textContent = "Director: " + popupData[popupIndex].directors;
+  document.getElementById("popupRating").textContent = "IMDB Rating: " + popupData[popupIndex].rating;
+
+  // Create a list of services with hyperlinked names
+  const servicesList = document.createElement("ul");
+  popupData[popupIndex].services.forEach(service => {
+    const listItem = document.createElement("li");
+    const link = document.createElement("a");
+    link.textContent = service.service + " (" + service.streamingType + ")";
+    link.href = service.link;
+    link.target = "_blank"; // Open link in a new tab
+    listItem.appendChild(link);
+    servicesList.appendChild(listItem);
+  });
+
+  // Append services list to popup content
+  document.getElementById("popupServices").textContent = "Available on: ";
+  document.getElementById("popupServices").appendChild(servicesList);
+
+  // Display the popup
+  document.getElementById("popup").style.display = "block";
+}
+
+// Function to close the popup
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
