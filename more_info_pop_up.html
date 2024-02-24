@@ -21,7 +21,11 @@
   font-size: 16px; /* Font size */
 }
 
-.popup a {
+.popup a{
+  color: #B9515B; /* Hyperlink color */
+}
+
+.popup h2{
   color: #B9515B; /* Hyperlink color */
 }
 
@@ -1144,24 +1148,70 @@ function openPopup(btnId) {
   console.log(popupIndex);
 
   // Populate the popup with data from the array constant
+// NEEDS MORE ERROR-CHECKING
+// Update popup title if popupData title is not undefined
+if (popupData[popupIndex].title !== undefined) {
   document.getElementById("popupTitle").textContent = popupData[popupIndex].title;
+}
+
+// Update popup year if popupData year is not undefined
+if (popupData[popupIndex].year !== undefined) {
   document.getElementById("popupYear").textContent = "Year: " + popupData[popupIndex].year;
-  document.getElementById("popupBlurb").textContent = popupData[popupIndex].blurb;
+}
+
+// Update popup blurb if popupData blurb is not undefined
+if (popupData[popupIndex].blurb !== undefined) {
+  document.getElementById("popupBlurb").innerHTML = popupData[popupIndex].blurb;
+}
+
+// Update popup cast if popupData cast is not undefined
+if (popupData[popupIndex].cast !== undefined) {
   document.getElementById("popupCast").textContent = "Cast: " + popupData[popupIndex].cast;
+}
+
+// Update popup director if popupData director is not undefined
+if (popupData[popupIndex].directors !== undefined) {
   document.getElementById("popupDirector").textContent = "Director: " + popupData[popupIndex].directors;
+}
+
+// Update popup rating if popupData rating is not undefined
+if (popupData[popupIndex].rating !== undefined) {
   document.getElementById("popupRating").textContent = "IMDB Rating: " + popupData[popupIndex].rating;
+}
 
   // Create a list of services with hyperlinked names
   const servicesList = document.createElement("ul");
-  popupData[popupIndex].services.forEach(service => {
-    const listItem = document.createElement("li");
+  servicesList.id = "servicesList"; // Assign an ID to the ul element
+  const listedServices = {};
+
+popupData[popupIndex].services.forEach(service => {
+  // Check if the service has already been listed
+  if (listedServices[service.service]) {
+    // If the service is already listed, find the existing list item
+    const existingListItem = servicesList.querySelector(`li[data-service="${service.service}"]`);
+    // Append the streaming type to the existing list item
     const link = document.createElement("a");
-    link.textContent = service.service + " (" + service.streamingType + ")";
+    link.innerHTML = existingListItem.innerHTML;
+    link.href = service.link;
+    link.target = "_blank"; // Open link in a new tab
+    existingListItem.innerHTML += `, ${service.streamingType}`;
+
+    
+  } else {
+    // If the service is not listed, create a new list item
+    const listItem = document.createElement("li");
+    listItem.dataset.service = service.service; // Set a data attribute to identify the service
+    const link = document.createElement("a");
+    link.textContent = service.service[0].toUpperCase() + service.service.substring(1); 
     link.href = service.link;
     link.target = "_blank"; // Open link in a new tab
     listItem.appendChild(link);
     servicesList.appendChild(listItem);
-  });
+    // Add the service to the listedServices object
+    listedServices[service.service] = true;
+    listItem.innerHTML += " : " + service.streamingType;
+  }
+});
 
   // Append services list to popup content
   document.getElementById("popupServices").textContent = "Available on: ";
