@@ -30,7 +30,7 @@
 }
 
 .info_button{
-  position: fixed;
+  position: relative;
   background-color: #B9515B; /* Popup color */
   color: #353535; /* Text color */
   padding-right: 20px;
@@ -42,6 +42,7 @@
   font-family: Arial, sans-serif; /* Font family */
   font-size: 16px; /* Font size */
   align-self: center;
+  margin:5px;
 }
 
 </style>
@@ -49,7 +50,22 @@
 <body>
 
 <!-- HERE WE ONLY HAVE ONE MORE INFO BUTTON -->
+<button onclick="openPopup('openPopupBtn0')" id="openPopupBtn0" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn1')" id="openPopupBtn1" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn2')" id="openPopupBtn2" class ="info_button">Open Popup</button>
 <button onclick="openPopup('openPopupBtn3')" id="openPopupBtn3" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn4')" id="openPopupBtn4" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn5')" id="openPopupBtn5" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn6')" id="openPopupBtn6" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn7')" id="openPopupBtn7" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn8')" id="openPopupBtn8" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn9')" id="openPopupBtn9" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn10')" id="openPopupBtn10" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn11')" id="openPopupBtn11" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn12')" id="openPopupBtn12" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn13')" id="openPopupBtn13" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn14')" id="openPopupBtn14" class ="info_button">Open Popup</button>
+<button onclick="openPopup('openPopupBtn15')" id="openPopupBtn15" class ="info_button">Open Popup</button>
 
 <!-- Popup content -->
 <div id="popup" class="popup">
@@ -1145,7 +1161,6 @@ const popupData =
 function openPopup(btnId) {
   // Get the button id to determine which popup data to display
   const popupIndex = parseInt(btnId.replace("openPopupBtn", "")); // Extract the numeric part of the button id
-  console.log(popupIndex);
 
   // Populate the popup with data from the array constant
 // NEEDS MORE ERROR-CHECKING
