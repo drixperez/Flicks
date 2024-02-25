@@ -3,6 +3,9 @@ body{
     margin: 0;
     padding: 0;
 }
+
+
+/*Pop up Code */
 .overlay{
     display: none;
     position: fixed;
@@ -13,29 +16,56 @@ body{
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
-button.password-close-btn{
+button.pop-up-close-btn{
     position: fixed;
     background-color: #353533;
     color: white;
     right: 4%;
-    border-radius: 4px;
+    border-radius: 5px;
 }
-button.password-change-submit{
+button.pop-up-change-submit{
     position: fixed;
     background-color: #353533;
     color: white;
     right: 41%;
-    border-radius: 4px;
+    border-radius: 5px;
     font-family: 'Concert One', sans-serif;
     height: 40px;
     width: 100px;
-    top: 85%;
+    top: 78%;
+}
+button.emailChange{
+    position: fixed;
+    background-color: #000000;
+    color: white;
+    right: 45%;
+    width: 200px;
+    height: 45px;
+    top: 40%;
+    border-radius: 5px;
+
+}
+.firstEmailEntry{
+    position: fixed;
+    width: 300px;
+    height: 30px;
+    right: 23%;
+    border-radius: 5px;
+}
+.secondEmailEntry{
+    position: fixed;
+    width: 300px;
+    height: 30px;
+    right: 23%;
+    top: 30%;
+    border-radius: 5px;
 }
 .firstPasswordEntry{
     position: fixed;
     width: 300px;
     height: 30px;
     right: 23%;
+    border-radius: 5px;
 }
 .secondPasswordEntry{
     position: fixed;
@@ -43,6 +73,7 @@ button.password-change-submit{
     height: 30px;
     right: 23%;
     top: 30%;
+    border-radius: 5px;
 }
 .pop-up{
     display: none;
@@ -58,6 +89,187 @@ button.password-change-submit{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1001;
 }
+.scifi{
+    position: fixed;
+    right: 54%;
+    top: 65%;
+}
+.scifiLabel{
+    position: fixed;
+    right: 46%;
+    top: 65%;
+}
+.action{
+    position: fixed;
+    right: 70%;
+    top: 30%;
+}
+.actionLabel{
+    position: fixed;
+    right: 61.5%;
+    top: 30%;
+}
+.adventure{
+    position: fixed;
+    right: 70%;
+    top: 35%;
+}
+.adventureLabel{
+    position: fixed;
+    right: 57.2%;
+    top: 35%;
+}
+.animation{
+    position: fixed;
+    right: 70%;
+    top: 40%;
+}
+.animationLabel{
+    position: fixed;
+    right: 57.1%;
+    top: 40%;
+}
+.comedy{
+    position: fixed;
+    right: 70%;
+    top: 45%;
+}
+.comedyLabel{
+    position: fixed;
+    right: 59.6%;
+    top: 45%;
+}
+.crime{
+    position: fixed;
+    right: 70%;
+    top: 50%;
+}
+.crimeLabel{
+    position: fixed;
+    right: 62.1%;
+    top: 50%;
+}
+.drama{
+    position: fixed;
+    right: 70%;
+    top: 55%;
+}
+.dramaLabel{
+    position: fixed;
+    right: 61.5%;
+    top: 55%;
+}
+.fantasy{
+    position: fixed;
+    right: 40%;
+    top: 30%;
+}
+.fantasyLabel{
+    position: fixed;
+    right: 30%;
+    top: 30%;
+}
+.history{
+    position: fixed;
+    right: 40%;
+    top: 35%;
+}
+.historyLabel{
+    position: fixed;
+    right: 30%;
+    top: 35%;
+}
+.horror{
+    position: fixed;
+    right: 40%;
+    top: 40%;
+}
+.horrorLabel{
+    position: fixed;
+    right: 32%;
+    top: 40%;
+}
+.musical{
+    position: fixed;
+    right: 40%;
+    top: 45%;
+}
+.musicalLabel{
+    position: fixed;
+    right: 30%;
+    top: 45%;
+}
+.mystery{
+    position: fixed;
+    right: 40%;
+    top: 50%;
+}
+.mysteryLabel{
+    position: fixed;
+    right: 28%;
+    top: 50%;
+}
+.romance{
+    position: fixed;
+    right: 40%;
+    top: 55%;
+}
+.romanceLabel{
+    position: fixed;
+    right: 28%;
+    top: 55%;
+}
+.netflix{
+    position: fixed;
+    right: 70%;
+    top: 30%;
+}
+.netflixLabel{
+    position: fixed;
+    right: 61%;
+    top: 30%;
+}
+.prime{
+    position: fixed;
+    right: 70%;
+    top: 35%;
+}
+.primeLabel{
+    position: fixed;
+    right: 54.5%;
+    top: 35%;
+}
+.disney{
+    position: fixed;
+    right: 40%;
+    top: 30%;
+}
+.disneyLabel{
+    position: fixed;
+    right: 28.9%;
+    top: 30%;
+}
+.max{
+    position: fixed;
+    right: 40%;
+    top: 35%;
+}
+.maxLabel{
+    position: fixed;
+    right: 26.5%;
+    top: 35%;
+}
+.paramount{
+    position: fixed;
+    right: 54%;
+    top: 40%;
+}
+.paramountLabel{
+    position: fixed;
+    right: 39%;
+    top: 40%;
+}
+/*General Styling */
 .Flicks-Logo{
     position: absolute;
     top: 0px;
@@ -75,43 +287,45 @@ button.password-change-submit{
     top: 100px;
     right: 725px;
 }
-button.submit{
+.languageChoice{
     position: fixed;
-    right: 49vw;
-    top: 80vh;
-    background-color: white;
-    border-radius: 4px;
-    width: 100px;
+    width: 200px;
     height: 45px;
+    right: 32.5%; 
+    top: 40%;
+}
 
+
+/* General button styling */
+button.languageChange{
+    background-color:#000000;
+    color:#ffffff;
+    position: fixed;
+    width: 200px;
+    height: 45px;
+    top: 70%;
+    right: 45%;
+    border-radius: 5px;
 }
-button.passwordChange{
+button.genreChange{
     background-color:#000000;
     color:#ffffff;
-    position: absolute;
+    position: fixed;
     width: 200px;
     height: 45px;
-    top: 200px;
-    right: 690px;
-    border-radius: 4px;
+    top: 50%;
+    right: 45%;
+    border-radius: 5px;
 }
-/* button.language{
+button.streamingServiceChange{
     background-color:#000000;
     color:#ffffff;
-    position: absolute;
+    position: fixed;
     width: 200px;
     height: 45px;
-    top: 300px;
-    right: 690px;
-} */
-button.favourite{
-    background-color:#000000;
-    color:#ffffff;
-    position: absolute;
-    width: 200px;
-    height: 45px;
-    top: 400px;
-    right: 690px;
+    top: 60%;
+    right: 45%;
+    border-radius: 5px;
 }
 button.general{
     background-color:#000000;
@@ -122,10 +336,13 @@ button.general{
     top: 500px;
     right: 690px;
 }
-select.languageChoice{
+button.passwordChange{
+    background-color:#000000;
+    color:#ffffff;
     position: absolute;
     width: 200px;
     height: 45px;
-    top: 300px;
-    right: 690px;
+    top: 200px;
+    right: 45%;
+    border-radius: 5px;
 }
