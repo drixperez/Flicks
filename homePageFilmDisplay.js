@@ -65,7 +65,7 @@ async function fetchDataAndPopulateArray() {
     newImageElement.src = currentFilm.image;
     newImageElement.style.width = 100;
     newImageElement.style.height = 100;
-    newImageElement.style.zIndex = '1001';
+    newImageElement.style.zIndex = 1001;
     imageContainer.appendChild(newImageElement);
     //const image = document.getElementById('film' + i);
     console.log('film' + i)
