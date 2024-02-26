@@ -2,7 +2,10 @@
 session_start();
 
 error_reporting (E_ALL ^ E_NOTICE);
-   
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $database_host = "dbhost.cs.man.ac.uk";
 $database_user = "p47083lt";
 $database_pass = "LucyMegan05";
@@ -38,9 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     { //the sign up doesn't take email?????
         $write = "INSERT INTO `user`(`email`, `password`, `DOB`) VALUES ('$email', '$password','$dob')";
         mysqli_query($con, $write);
+        $id = mysqli_insert_id($con);
         //retreive user id for this entry
-        $query = "SELECT `userID` FROM `user` WHERE `email` = '$email'";
-        $id = mysqli_query($con, $query); 
+       // $query = "SELECT `userID` FROM `user` WHERE `email` = '$email'";
+       // $id = mysqli_query($con, $query); 
         echo"$id";
         $adventure = $_POST['adventure'];
         $action = $_POST['action'];
@@ -60,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST['adventure'])){
             $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$adventure','1')";
             echo"$write";
-            //mysqli_query($con, $write);
+            mysqli_query($con, $write);
         }
         /*
         if (isset($_POST['action'])){
