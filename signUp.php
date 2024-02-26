@@ -59,8 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (isset($_POST['adventure'])){
             $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$adventure','1')";
-            mysqli_query($con, $write);
+           echo"$write";
+            //mysqli_query($con, $write);
         }
+        /*
         if (isset($_POST['action'])){
             echo"reaches here";
             $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$action','1')";
@@ -110,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$scifi','1')";
             mysqli_query($con, $write);
         }
-
+*/
 
 
         //retrieve the streaming services 
