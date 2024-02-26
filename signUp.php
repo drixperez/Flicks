@@ -16,7 +16,7 @@ if ($con->connect_errno) {
   exit();
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email_address = $_POST["email"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
     $passwordC = $_POST["passwordC"];
     $dob = $_POST["dob"];
