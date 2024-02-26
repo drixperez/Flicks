@@ -8,7 +8,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<div class="heading"><
 <body>
-    <div id="movie1" class="movie1">
+    <div class="movie1">
+        <div id="Random Film1" >Film1</div>
+        <div id="Random Film2">Film2</div>
         
     </div>
