@@ -16,7 +16,7 @@ if ($con->connect_errno) {
   exit();
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email_address = $_POST["email"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
     $passwordC = $_POST["passwordC"];
     $dob = $_POST["dob"];
@@ -35,11 +35,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     if($password == $passwordC)
-    {
+    { //the sign up doesn't take email?????
         $write = "INSERT INTO `user`(`email`, `password`, `DOB`) VALUES ('$email', '$password','$dob')";
         mysqli_query($con, $write);
         //retreive user id for this entry
+        $query = "SELECT `userID` FROM `user` WHERE `email` = '$email'";
+        $id = mysqli_query($con, $query);
 
+        $adventure = $_POST['adventure'];
+        echo "$adventure";
+
+        //retrieve the genres / streaming services 
+        //add these to databases
 
     } else {
         echo "passwords do not match please try again";
@@ -96,70 +103,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" class="passwordCInp" placeholder="Confirm Password" name="passwordC" id="passwordC">
             <!-- <input type="text" class="genrePreferences" placeholder="Genre Preferences" name="genres" id="genres"> -->
             <div class="genres">
-                <input type="checkbox" class="action" id="action" name="action" value="Action">
+                <input type="checkbox" class="action" id="action" name="action" value="28">
                 <label class="actionLabel" for="action">Action</label>
-                <input type="checkbox" class="adventure" id="adventure" name="adventure" value="Adventure">
+                <input type="checkbox" class="adventure" id="adventure" name="adventure" value="12">
                 <label class="adventureLabel" for="adventure">Adventure</label>
-                <input type="checkbox" class="animation" id="animation" name="animation" value="Animation">
+                <input type="checkbox" class="animation" id="animation" name="animation" value="16">
                 <label class="animationLabel" for="animation">Animation</label>
-                <input type="checkbox" class="comedy" id="comedy" name="comedy" value="Comedy">
+                <input type="checkbox" class="comedy" id="comedy" name="comedy" value="35">
                 <label class="comedyLabel" for="comedyLabel">Comedy</label>
-                <input type="checkbox" class="crime" id="crime" name="crime" value="Crime">
+                <input type="checkbox" class="crime" id="crime" name="crime" value="80">
                 <label class="crimeLabel" for="crime">Crime</label>
-                <input type="checkbox" class="drama" id="drama" name="drama" value="Drama">
+                <input type="checkbox" class="drama" id="drama" name="drama" value="18">
                 <label class="dramaLabel" for="drama">Drama</label>
-                <input type="checkbox" class="fantasy" id="fantasy" name="fantasy" value="Fantasy">
+                <input type="checkbox" class="fantasy" id="fantasy" name="fantasy" value="14">
                 <label class="fantasyLabel" for="fantasy">Fantasy</label>
-                <input type="checkbox" class="history" id="history" name="history" value="History">
+                <input type="checkbox" class="history" id="history" name="history" value="36">
                 <label class="historyLabel" for="genre8">History</label>
-                <input type="checkbox" class="horror" id="horror" name="horror" value="Horror">
+                <input type="checkbox" class="horror" id="horror" name="horror" value="27">
                 <label class="horrorLabel" for="horror">Horror</label>
-                <input type="checkbox" class="musical" id="musical" name="musical" value="Musical">
+                <input type="checkbox" class="musical" id="musical" name="musical" value="10402">
                 <label class="musicalLabel" for="musical">Musical</label>
-                <input type="checkbox" class="mystery" id="mystery" name="mystery" value="Mystery">
+                <input type="checkbox" class="mystery" id="mystery" name="mystery" value="9648">
                 <label class="mysteryLabel" for="mystery">Mystery</label>
-                <input type="checkbox" class="romance" id="romance" name="romance" value="Romance">
+                <input type="checkbox" class="romance" id="romance" name="romance" value="10749">
                 <label class="romanceLabel" for="romance">Romance</label>
-                <input type="checkbox" class="scifi" id="scifi" name="scifi" value="Sci-Fi">
+                <input type="checkbox" class="scifi" id="scifi" name="scifi" value="878">
                 <label class="scifiLabel" for="scifi">Sci-Fi</label>
             </div>
             <label class="streamingLabel" for="streamingServices">Streaming Services</label>
             <div class="streamingServices">
-                <input type="checkbox" class="netflix" id="netflix" name="netflix" value="Netflix">
+                <input type="checkbox" class="netflix" id="netflix" name="netflix" value="netflix">
                 <label class="netflixLabel" for="netflix">Netflix</label>
-                <input type="checkbox" class="prime" id="prime" name="prime" value="Prime">
+                <input type="checkbox" class="prime" id="prime" name="prime" value="prime">
                 <label class="primeLabel" for="prime">Prime Video</label>
-                <input type="checkbox" class="disney" id="disney" name="disney" value="Disney">
+                <input type="checkbox" class="disney" id="disney" name="disney" value="disney">
                 <label class="disneyLabel" for="disney">Disney+</label>
-                <input type="checkbox" class="max" id="max" name="max" value="Max">
+                <input type="checkbox" class="max" id="max" name="max" value="hbo">
                 <label class="maxLabel" for="max">HBO Max</label>
-                <input type="checkbox" class="paramount" id="paramount" name="paramount" value="Paramount">
+                <input type="checkbox" class="paramount" id="paramount" name="paramount" value="paramount">
                 <label class="paramountLabel" for="paramount">Paramount+</label>
             </div>
             <input type="date" class="dob" placeholder="Date Of Birth" name="dob" id="dob">
         </form>
-        <?php 
-        $action = FALSE;
-        $adventure = FALSE;
-        $animation = FALSE;
-        $comedy = FALSE;
-        $crime = FALSE;
-        $drama = FALSE;
-        $fantasy = FALSE;
-        $history = FALSE;
-        $horror = FALSE;
-        $musical = FALSE;
-        $mystery = FALSE;
-        $romance = FALSE;
-        $scifi = FALSE;
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $email_address = $_POST["email"];
-            $password = $_POST["password"];
-            $passwordC = $_POST["passwordC"];
-            $dob = $_POST["dob"];
-        }
-       
-        ?>
         
     </body>
 </html>

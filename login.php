@@ -26,8 +26,11 @@ if ($con->connect_errno) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         //something was posted
-        $email = $_POST['email'];
-        $password = $_POST['psw'];
+        $email = $_POST["email"];
+        $password = $_POST["psw"];
+
+        echo"$email";
+        echo "$password";
 
         if(!empty($email) && !empty($password))
         {
@@ -179,7 +182,7 @@ if ($con->connect_errno) {
     </div>
     <p></p>
     <p></p>
-  <form class="login-form" action="" method="post">
+  <form class="login-form" method="post">
     <input type="email" name="email" placeholder="email address" required>
     <input type="password" name="password" placeholder="password" required>
     <input type="submit" value="login">
