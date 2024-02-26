@@ -92,9 +92,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="passwordInp" class="passwordCLabel">Confirm Password *</label>
             <label for="genresPreferences" class="genresLabel">Genre Preferences</label>
             <label for="dob" class="dobLabel">Date Of Birth *</label>
-            <input type="text" class="passwordInp" placeholder="Password" name="password" id="password" required>
-            <input type="text" class="emailInp" placeholder="Email Address" name="email" id="email" required>
-            <input type="text" class="passwordCInp" placeholder="Confirm Password" name="passwordC" id="passwordC" required>
+            <input type="text" class="passwordInp" placeholder="Password" name="password" id="password">
+            <input type="text" class="emailInp" placeholder="Email Address" name="email" id="email">
+            <input type="text" class="passwordCInp" placeholder="Confirm Password" name="passwordC" id="passwordC">
             <!-- <input type="text" class="genrePreferences" placeholder="Genre Preferences" name="genres" id="genres"> -->
             <div class="genres">
                 <input type="checkbox" class="action" id="action" name="action" value="Action">
@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="checkbox" class="paramount" id="paramount" name="paramount" value="Paramount">
                 <label class="paramountLabel" for="paramount">Paramount+</label>
             </div>
-            <input type="date" class="dob" placeholder="Date Of Birth" name="dob" id="dob" required>
+            <input type="date" class="dob" placeholder="Date Of Birth" name="dob" id="dob">
         </form>
         <?php 
         $action = FALSE;
@@ -153,7 +153,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mystery = FALSE;
         $romance = FALSE;
         $scifi = FALSE;
-
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $email_address = $_POST["email"];
+            $password = $_POST["password"];
+            $passwordC = $_POST["passwordC"];
+            $dob = $_POST["dob"];
+        }
+       
         ?>
         
     </body>

@@ -38,7 +38,7 @@ body {
 .loginLink{
     position: fixed;
     right: 150px;
-    top: 20px;
+    top: 5vh;
 }
 .settingsLink{
     position: fixed;
@@ -77,7 +77,7 @@ button.background{
     border-radius: 4px;
     position: fixed;
     top: 170px;
-    right: 680px;
+    right: 44.5vw;
     width: 250px;
     height: 40px;
 }
@@ -86,7 +86,7 @@ button.background{
     border-radius: 4px;
     position: fixed;
     top: 100px;
-    right: 680px;
+    right: 44.5vw;
     width: 250px;
     height: 40px;
     display: flex;
@@ -99,7 +99,7 @@ button.background{
     border-radius: 4px;
     position: fixed;
     top: 240px;
-    right: 680px;
+    right: 44.5vw;
     width: 250px;
     height: 40px;
 }
@@ -117,7 +117,7 @@ button.background{
     border-radius: 4px;
     position: fixed;
     top: 590px;
-    right: 680px;
+    right: 44.5vw;
     width: 250px;
     height: 40px;
 }
@@ -125,22 +125,22 @@ button.background{
     font-family: Georgia;
     color:#333;
     position: fixed;
-    top: 80px;
-    right: 822px;
+    top: 11vh;
+    right: 53.8vw;
 }
 .passwordLabel{
     font-family: Georgia;
     color:#333;
     position: fixed;
-    top: 150px;
-    right: 860px;
+    top: 21.5vh;
+    right: 56vw;
 }
 .passwordCLabel{
     font-family: Georgia;
     color:#333;
     position: fixed;
-    top: 220px;
-    right: 797px;
+    top: 31.5vh;
+    right: 52vw;
 }
 .genresLabel{
     font-family: Georgia;
@@ -183,7 +183,7 @@ button.submit{
     color:#ffffff;
     position: fixed;
     top: 650px;
-    right: 682.5px;
+    right: 45vw;
     width: 250px;
     height: 40px;
 }

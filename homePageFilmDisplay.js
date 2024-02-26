@@ -58,10 +58,20 @@ async function fetchDataAndPopulateArray() {
   // document.getElementById('result').textContent = "Check console log for films array";
   for (let i = 0; i < 12; i++) { //
     const currentFilm = filmsArray[i];
-    const title = document.getElementById('whatever ama names it');
-    const image = document.getElementById('whatever ama names it');
-    image.src = currentFilm.image;
-    title = currentFilm.title;
+    console.log(currentFilm.image);
+    const title = document.getElementById('film' + i);
+    const imageContainer = document.getElementById('filmImage' + i);
+    const newImageElement = document.createElement('img');
+    newImageElement.src = currentFilm.image;
+    newImageElement.style.width = 100;
+    newImageElement.style.height = 100;
+    newImageElement.style.zIndex = 1001;
+    imageContainer.appendChild(newImageElement);
+    //const image = document.getElementById('film' + i);
+    console.log('film' + i)
+    //image.src = currentFilm.image;
+    title.textContent = currentFilm.title;
+    
     console.log(title);
   }
 }
@@ -87,7 +97,7 @@ async function fetchIMDbData(imdbId) {
   const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '8446d3330bmsh92d50f888289f11p13c2eejsnc4803bf05ae9',
+		'X-RapidAPI-Key': 'b21562c4aamsh06a71fcdee37075p110ae5jsn18e0183067b3',
 		'X-RapidAPI-Host': 'imdb146.p.rapidapi.com'
 	}
 };
