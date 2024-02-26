@@ -135,8 +135,27 @@
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $languageChoice = $_POST["language"];
                 $changedPassword = $_POST["1stPassword"];
-                echo $changedPassword;
-
+                $confirmChangedPassword = $_POST["2ndPassword"];
+                $changedEmail = $_POST["1stEmail"];
+                $confirmChangedEmail = $_POST["2ndEmail"];
+                $changedLanguage = $_POST["languageChoice"];
+                $action = (isset($_POST['action']));
+                $adventure = (isset($_POST['adventure']));
+                $animation = (isset($_POST['animation']));
+                $comedy = (isset($_POST['comedy']));
+                $drama = (isset($_POST['drama']));
+                $fantasy = (isset($_POST['fantasy']));
+                $history = (isset($_POST['history']));
+                $horror = (isset($_POST['horror']));
+                $musical = (isset($_POST['musical']));
+                $mystery = (isset($_POST['mystery']));
+                $romance = (isset($_POST['romance']));
+                $scifi = (isset($_POST['scifi']));
+                $netflix = (isset($_POST['netflix']));
+                $prime = (isset($_POST['prime']));
+                $disney = (isset($_POST['disney']));
+                $max = (isset($_POST['max']));
+                $paramount = (isset($_POST['paramount']));
             }
 
         ?>
