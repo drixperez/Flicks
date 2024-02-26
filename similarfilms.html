@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flicks Movie Finder</title>
+</head>
+
+<body>
+    <h1>Flicks Movie Finder</h1>
+    <input type="text" id="movieInput" placeholder="Enter IMDb ID">
+    <button onclick="fetchMovies()">Search</button>
+    <div id="result"></div>
+    
+
+<script>
+    async function fetchMovies() {
+        const movieInput = document.getElementById('movieInput').value.trim();
+
+        if (!movieInput) {
+            alert('Please enter an IMDb ID');
+            return;
+        }
+
+        const streamingAPIKey = '2889758c6dmsh9033377f3fc0553p1f8866jsn3607831ebc9a';
+        const imdbAPIKey = '2889758c6dmsh9033377f3fc0553p1f8866jsn3607831ebc9a';
+
+        const imdbURL = `https://imdb146.p.rapidapi.com/v1/title/?id=${movieInput}`;
+        const imdboptions = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': imdbAPIKey,
+                'X-RapidAPI-Host': 'imdb146.p.rapidapi.com'
+            }
+        };
+
+        try {
+            const imdbResponse = await fetch(imdbURL, imdboptions);
+            const imdbData = await imdbResponse.json();
+
+            const similarMovieIds = [
+                imdbData.moreLikeThisTitles.edges[0].node.id,
+                imdbData.moreLikeThisTitles.edges[1].node.id
+            ];
+
+            for (const id of similarMovieIds) {
+                const streamingURL = `https://streaming-availability.p.rapidapi.com/get?output_language=en&imdb_id=${id}`;
+                const streamingoptions = {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': streamingAPIKey,
+                        'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+                    }
+                };
+
+                const streamingResponse = await fetch(streamingURL, streamingoptions);
+                const streamingData = await streamingResponse.json();
+
+                const filmInfo = {
+                    title: streamingData.result.title,
+                    year: imdbData.moreLikeThisTitles.edges.find(edge => edge.node.id === id).node.releaseYear.year,
+                    cast: streamingData.result.cast,
+                    directors: streamingData.result.directors,
+                    rating: imdbData.moreLikeThisTitles.edges.find(edge => edge.node.id === id).node.ratingsSummary.aggregateRating,
+                    blurb: streamingData.result.overview,
+                    image: imdbData.moreLikeThisTitles.edges.find(edge => edge.node.id === id).node.primaryImage.url,
+                    imdbId: id,
+                    services: streamingData.result.streamingInfo,
+                };
+
+                console.log(filmInfo); 
+            }
+        } catch (error) {
+            console.error('Error fetching movies:', error);
+            document.getElementById('result').textContent = 'Error fetching data. Please try again later.';
+        }
+    }
+</script>
