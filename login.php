@@ -182,7 +182,7 @@ if ($con->connect_errno) {
     </div>
     <p></p>
     <p></p>
-  <form class="login-form" method="post">
+  <form class="login-form" action = "" method="post">
     <input type="email" name="email" placeholder="email address" required>
     <input type="password" name="password" placeholder="password" required>
     <input type="submit" value="login">
