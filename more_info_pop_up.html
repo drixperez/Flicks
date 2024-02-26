@@ -49,7 +49,6 @@
 </head>
 <body>
 
-<!-- HERE WE ONLY HAVE ONE MORE INFO BUTTON -->
 <button onclick="openPopup('openPopupBtn0')" id="openPopupBtn0" class ="info_button">Open Popup</button>
 <button onclick="openPopup('openPopupBtn1')" id="openPopupBtn1" class ="info_button">Open Popup</button>
 <button onclick="openPopup('openPopupBtn2')" id="openPopupBtn2" class ="info_button">Open Popup</button>
@@ -80,7 +79,7 @@
 </div>
 
 <script>
-// Array constant with popup data
+// Array constant with popup data which will be replaced for filmInfoArray
 const popupData = 
 [
     {
@@ -1163,7 +1162,6 @@ function openPopup(btnId) {
   const popupIndex = parseInt(btnId.replace("openPopupBtn", "")); // Extract the numeric part of the button id
 
   // Populate the popup with data from the array constant
-// NEEDS MORE ERROR-CHECKING
 // Update popup title if popupData title is not undefined
 if (popupData[popupIndex].title !== undefined) {
   document.getElementById("popupTitle").textContent = popupData[popupIndex].title;
