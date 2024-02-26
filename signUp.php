@@ -43,9 +43,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_query($con, $write);
         $id = mysqli_insert_id($con);
 
+        if(isset($_POST['netflix'])){
+            $write = "INSERT INTO `userstreamingservices`(`userID`, `serviceTitle`) VALUES ('$id','netflix')";
+            mysqli_query($con, $write);
+        }
+
+        if(isset($_POST['prime'])){
+            $write = "INSERT INTO `userstreamingservices`(`userID`, `serviceTitle`) VALUES ('$id','prime')";
+            mysqli_query($con, $write);
+        }
+
+        if(isset($_POST['disney'])){
+            $write = "INSERT INTO `userstreamingservices`(`userID`, `serviceTitle`) VALUES ('$id','disney')";
+            mysqli_query($con, $write);
+        }
+
+        if(isset($_POST['max'])){
+            $write = "INSERT INTO `userstreamingservices`(`userID`, `serviceTitle`) VALUES ('$id','hbo')";
+            mysqli_query($con, $write);
+        }
+
+        if(isset($_POST['paramount'])){
+            $write = "INSERT INTO `userstreamingservices`(`userID`, `serviceTitle`) VALUES ('$id','paramount')";
+            mysqli_query($con, $write);
+        }
+
+
         if (isset($_POST['adventure'])){
             $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','12','1')";
-            echo"$write";
             mysqli_query($con, $write);
         }
         
