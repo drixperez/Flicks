@@ -39,6 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $write = "INSERT INTO `user`(`email`, `password`, `DOB`) VALUES ('$email', '$password','$dob')";
         mysqli_query($con, $write);
         //retreive user id for this entry
+        $query = "SELECT `userID` FROM `user` WHERE `email` = '$email'";
+        $id = mysqli_query($con, $query);
+
+        $adventure = $_POST['adventure'];
+        echo "$adventure";
+
         //retrieve the genres / streaming services 
         //add these to databases
 
@@ -139,28 +145,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <input type="date" class="dob" placeholder="Date Of Birth" name="dob" id="dob">
         </form>
-        <?php 
-        $action = FALSE;
-        $adventure = FALSE;
-        $animation = FALSE;
-        $comedy = FALSE;
-        $crime = FALSE;
-        $drama = FALSE;
-        $fantasy = FALSE;
-        $history = FALSE;
-        $horror = FALSE;
-        $musical = FALSE;
-        $mystery = FALSE;
-        $romance = FALSE;
-        $scifi = FALSE;
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $email_address = $_POST["email"];
-            $password = $_POST["password"];
-            $passwordC = $_POST["passwordC"];
-            $dob = $_POST["dob"];
-        }
-       
-        ?>
         
     </body>
 </html>
