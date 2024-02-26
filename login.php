@@ -27,10 +27,8 @@ if ($con->connect_errno) {
     {
         //something was posted
         $email = $_POST["email"];
-        $password = $_POST["psw"];
+        $password = $_POST["password"];
 
-        echo"$email";
-        echo "$password";
 
         if(!empty($email) && !empty($password))
         {
@@ -44,7 +42,8 @@ if ($con->connect_errno) {
               $user_data = mysqli_fetch_assoc($result);
               if($user_data['password'] === $password)
                 {
-                    echo "login successful";
+                  header("Location: https://web.cs.manchester.ac.uk/p47083lt/cm5/homePage.php");
+                  die();
                 }
                 else{
                     echo "login failed";
@@ -182,7 +181,7 @@ if ($con->connect_errno) {
     </div>
     <p></p>
     <p></p>
-  <form class="login-form" method="post">
+  <form class="login-form" action = "" method="post">
     <input type="email" name="email" placeholder="email address" required>
     <input type="password" name="password" placeholder="password" required>
     <input type="submit" value="login">
