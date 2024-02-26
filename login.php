@@ -27,10 +27,8 @@ if ($con->connect_errno) {
     {
         //something was posted
         $email = $_POST["email"];
-        $password = $_POST["psw"];
+        $password = $_POST["password"];
 
-        echo"$email";
-        echo "$password";
 
         if(!empty($email) && !empty($password))
         {
