@@ -40,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_query($con, $write);
         //retreive user id for this entry
         $query = "SELECT `userID` FROM `user` WHERE `email` = '$email'";
-       // $id = mysqli_query($con, $query); UNCOMMENT THIS BUT DIDNT WANT TO KEEP ADDING RANDOM STUFF 
-
+        $id = mysqli_query($con, $query); 
+        echo"$id";
         $adventure = $_POST['adventure'];
         $action = $_POST['action'];
         $animation = $_POST['animation'];
