@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_query($con, $write);
         //retreive user id for this entry
         $query = "SELECT `userID` FROM `user` WHERE `email` = '$email'";
-        $id = mysqli_query($con, $query);
+       // $id = mysqli_query($con, $query); UNCOMMENT THIS BUT DIDNT WANT TO KEEP ADDING RANDOM STUFF 
 
         $adventure = $_POST['adventure'];
         $action = $_POST['action'];
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (isset($_POST['adventure'])){
             $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$adventure','1')";
-           echo"$write";
+            echo"$write";
             //mysqli_query($con, $write);
         }
         /*
@@ -117,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //retrieve the streaming services 
         //add these to databases
+        echo"signup success";
 
     } else {
         echo "passwords do not match please try again";
