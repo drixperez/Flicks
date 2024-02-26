@@ -30,7 +30,7 @@ if ($con->connect_errno) {
         $password = $_POST["psw"];
 
         echo"$email";
-        echo "$psw";
+        echo "$password";
 
         if(!empty($email) && !empty($password))
         {
