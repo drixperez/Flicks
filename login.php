@@ -42,7 +42,8 @@ if ($con->connect_errno) {
               $user_data = mysqli_fetch_assoc($result);
               if($user_data['password'] === $password)
                 {
-                    echo "login successful";
+                  header("Location: https://web.cs.manchester.ac.uk/p47083lt/cm5/homePage.php");
+                  die();
                 }
                 else{
                     echo "login failed";
