@@ -58,56 +58,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         if (isset($_POST['adventure'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$adventure','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$adventure','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['action'])){
             echo"reaches here";
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$action','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$action','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['animation'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$animation','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$animation','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['comedy'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$comedy','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$comedy','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['crime'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$crime','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$crime','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['drama'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$drama','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$drama','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['fantasy'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$fantasy','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$fantasy','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['history'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$history','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$history','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['horror'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$horror','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$horror','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['musical'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$musical','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$musical','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['mystery'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$mystery','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$mystery','1')";
             mysqli_query($con, $write);
         }
         if (!isset($_POST['romance'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$romance','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$romance','1')";
             mysqli_query($con, $write);
         }
         if (isset($_POST['scifi'])){
-            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$scifi','null')";
+            $write = "INSERT INTO `UserGenres`(`userID`, `genreID`, `genreRank`) VALUES ('$id','$scifi','1')";
             mysqli_query($con, $write);
         }
 
