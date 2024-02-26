@@ -29,6 +29,9 @@ if ($con->connect_errno) {
         $email = $_POST['email'];
         $password = $_POST['psw'];
 
+        echo"$email";
+        echo "$psw";
+
         if(!empty($email) && !empty($password))
         {
           //read from database

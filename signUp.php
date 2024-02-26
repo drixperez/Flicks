@@ -35,11 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     if($password == $passwordC)
-    {
+    { //the sign up doesn't take email?????
         $write = "INSERT INTO `user`(`email`, `password`, `DOB`) VALUES ('$email', '$password','$dob')";
         mysqli_query($con, $write);
         //retreive user id for this entry
-
+        //retrieve the genres / streaming services 
+        //add these to databases
 
     } else {
         echo "passwords do not match please try again";
